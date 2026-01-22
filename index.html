@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Srinath Yadav | Resume</title>
+
+    <!-- Mobile responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <img src="profile.jpg" alt="Profile Photo">
+    <div>
+        <h1>Srinath Yadav</h1>
+        <h3>BCA Student | Web Development | Python</h3>
+    </div>
+</header>
+
+<div class="buttons">
+    <button onclick="showSection('about')">About Me</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('education')">Education</button>
+    <button onclick="showSection('contact')">Contact</button>
+</div>
+
+<div id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+        I am a Bachelor of Computer Applications (BCA) student with a strong interest in
+        web development and Python programming. I enjoy building clean, structured,
+        and interactive web pages through hands-on practice.
+    </p>
+    <p>
+        This project represents my learning in HTML, CSS, JavaScript, and responsive
+        web design.
+    </p>
+</div>
+
+<div id="skills" class="section">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML5 & CSS3</li>
+        <li>Responsive Web Design</li>
+        <li>Basic JavaScript</li>
+        <li>Python Programming</li>
+        <li>Git & GitHub</li>
+        <li>Problem Solving</li>
+    </ul>
+</div>
+
+<div id="education" class="section">
+    <h2>Education</h2>
+
+    <p class="edu-title" onclick="toggleEdu('bca')">Bachelor of Computer Applications (BCA)</p>
+    <div id="bca" class="edu-details">
+        <p><b>CGPA:</b> 7.5</p>
+        <p>Indus Valley Degree College</p>
+        <p>Bengaluru North University</p>
+    </div>
+
+    <p class="edu-title" onclick="toggleEdu('puc')">PUC</p>
+    <div id="puc" class="edu-details">
+        <p><b>Percentage:</b> 69.5%</p>
+        <p>Samruddi PU and Degree College</p>
+    </div>
+
+    <p class="edu-title" onclick="toggleEdu('sslc')">SSLC</p>
+    <div id="sslc" class="edu-details">
+        <p><b>Percentage:</b> 90.08%</p>
+        <p>Smt Vasanthi Venugopal High School</p>
+    </div>
+</div>
+
+<div id="contact" class="section">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> srinathsrinsth195@gmail.com</p>
+    <p><strong>LinkedIn:</strong> Srinath (Yadav) C</p>
+    <p><strong>GitHub:</strong> srinathyadav46</p>
+</div>
+
+<footer>
+    Internship Experience: IMTDA Infotech Private Limited
+</footer>
+<footer>By srinathyadav46 </footer>
+<script>
+    function showSection(id) {
+        let sections = document.getElementsByClassName("section");
+        for (let i = 0; i < sections.length; i++) {
+            sections[i].classList.remove("show");
+            sections[i].style.display = "none";
+        }
+
+        let active = document.getElementById(id);
+        active.style.display = "block";
+        setTimeout(() => active.classList.add("show"), 10);
+    }
+
+    function toggleEdu(id) {
+        let details = document.getElementsByClassName("edu-details");
+        for (let i = 0; i < details.length; i++) {
+            details[i].style.display = "none";
+        }
+        document.getElementById(id).style.display = "block";
+    }
+</script>
+
+</body>
+</html>
