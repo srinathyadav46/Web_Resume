@@ -17,7 +17,7 @@
 <body>
 
 <header>
-    <img src="1000045026 (1).jpg" alt="Profile Photo">
+    <img src="profile.jpg" alt="Profile Photo">
     <div>
         <h1>Srinath Yadav</h1>
         <h3>BCA Student | Web Development | Python</h3>
@@ -34,13 +34,9 @@
 <div id="about" class="section">
     <h2>About Me</h2>
     <p>
-        I am a Bachelor of Computer Applications (BCA) student with a strong interest in
-        web development and Python programming. I enjoy building clean, structured,
-        and interactive web pages through hands-on practice.
-    </p>
-    <p>
-        This project represents my learning in HTML, CSS, JavaScript, and responsive
-        web design.
+        I am a BCA student with a strong interest in web development and Python.
+        This resume website showcases my skills, education, and contact details
+        using HTML, CSS, and JavaScript.
     </p>
 </div>
 
@@ -52,7 +48,6 @@
         <li>Basic JavaScript</li>
         <li>Python Programming</li>
         <li>Git & GitHub</li>
-        <li>Problem Solving</li>
     </ul>
 </div>
 
@@ -81,15 +76,15 @@
 
 <div id="contact" class="section">
     <h2>Contact</h2>
-    <p><strong>Email:</strong> srinathsrinsth195@gmail.com</p>
-    <p><strong>LinkedIn:</strong> Srinath (Yadav) C</p>
-    <p><strong>GitHub:</strong> srinathyadav46</p>
+    <p>Email: srinathsrinsth195@gmail.com</p>
+    <p>GitHub: srinathyadav46</p>
+    <p>LinkedIn: Srinath (Yadav) C</p>
 </div>
 
 <footer>
-    Internship Experience: IMTDA Infotech Private Limited
+    Internship Experience: IMTDA Infotech Pvt. Limited
 </footer>
-<footer>By srinathyadav46 </footer>
+
 <script>
     function showSection(id) {
         let sections = document.getElementsByClassName("section");
@@ -97,7 +92,6 @@
             sections[i].classList.remove("show");
             sections[i].style.display = "none";
         }
-
         let active = document.getElementById(id);
         active.style.display = "block";
         setTimeout(() => active.classList.add("show"), 10);
