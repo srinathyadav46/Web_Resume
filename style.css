@@ -150,3 +150,18 @@ footer {
         color: #b2f5ea;
     }
 }
+.profile-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 18px;
+    padding: 6px 8px;
+    border-radius: 50%;
+}
