@@ -16,6 +16,27 @@
 
 <body>
 
+<!-- BUTTONS (TOP RIGHT) -->
+<div class="buttons">
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('about')">About</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('education')">Education</button>
+    <button onclick="showSection('hobbies')">Hobbies</button>
+    <button onclick="showSection('internship')">Internship</button>
+    <button onclick="showSection('contact')">Contact</button>
+</div>
+
+<!-- HOME -->
+<div id="home" class="section show home">
+    <h1>Welcome 👋</h1>
+    <p>
+        Hi, I’m <b>Srinath Yadav</b>.  
+        This is my personal resume website where you can explore my skills,
+        education, internship experience, and interests.
+    </p>
+</div>
+
 <header>
     <img src="1000045026 (1).jpg" alt="Profile Photo">
     <div>
@@ -24,22 +45,17 @@
     </div>
 </header>
 
-<div class="buttons">
-    <button onclick="showSection('about')">About Me</button>
-    <button onclick="showSection('skills')">Skills</button>
-    <button onclick="showSection('education')">Education</button>
-    <button onclick="showSection('contact')">Contact</button>
-</div>
-
+<!-- ABOUT -->
 <div id="about" class="section">
     <h2>About Me</h2>
     <p>
         I am a BCA student with a strong interest in web development and Python.
-        This resume website showcases my skills, education, and contact details
-        using HTML, CSS, and JavaScript.
+        I enjoy creating clean, responsive websites and continuously learning
+        new technologies to improve my skills.
     </p>
 </div>
 
+<!-- SKILLS -->
 <div id="skills" class="section">
     <h2>Skills</h2>
     <ul>
@@ -51,6 +67,7 @@
     </ul>
 </div>
 
+<!-- EDUCATION -->
 <div id="education" class="section">
     <h2>Education</h2>
 
@@ -74,20 +91,54 @@
     </div>
 </div>
 
+<!-- HOBBIES -->
+<div id="hobbies" class="section">
+    <h2>Hobbies</h2>
+    <ul>
+        <li>Exploring new web technologies</li>
+        <li>Practicing coding problems</li>
+        <li>Watching tech-related videos</li>
+        <li>Listening to music</li>
+        <li>Learning new skills online</li>
+    </ul>
+</div>
+
+<!-- INTERNSHIP -->
+<div id="internship" class="section">
+    <h2>Internship</h2>
+
+    <p><b>IMTDA Infotech Private Limited</b></p>
+    <p>
+        Internship focused on AI, Machine Learning, and Python.
+        Gained hands-on experience with basic ML concepts,
+        Python programming, and real-world project exposure.
+    </p>
+
+    <hr>
+
+    <p><b>Example Company: Infosys</b></p>
+    <p>
+        A global IT services company providing software development,
+        consulting, and technology solutions across various industries.
+        Known for innovation and professional training programs.
+    </p>
+</div>
+
+<!-- CONTACT -->
 <div id="contact" class="section">
     <h2>Contact</h2>
     <p>Email: srinathsrinsth195@gmail.com</p>
     <p>GitHub: srinathyadav46</p>
     <p>
-    <strong>LinkedIn:</strong>
-    <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank">
-        Srinath (Yadav) C
-    </a>
-</p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank">
+            Srinath (Yadav) C
+        </a>
+    </p>
 </div>
 
 <footer>
-    Internship By IMTDA Infotech Private Limited
+    Internship by IMTDA Infotech Private Limited
 </footer>
 
 <script>
@@ -98,7 +149,7 @@
             sections[i].style.display = "none";
         }
         let active = document.getElementById(id);
-        active.style.display = "block";
+        active.style.display = "flex";
         setTimeout(() => active.classList.add("show"), 10);
     }
 
