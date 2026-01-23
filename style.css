@@ -192,3 +192,22 @@ footer {
 .exit-btn:hover {
     background: rgba(255, 0, 0, 0.7);
 }
+/* FEEDBACK STARS */
+.stars {
+    font-size: 32px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.stars span {
+    margin-right: 6px;
+}
+
+.stars span:hover,
+.stars span:hover ~ span {
+    color: #aaa;
+}
+
+.stars span.active {
+    color: gold;
+}
