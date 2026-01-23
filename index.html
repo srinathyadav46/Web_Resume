@@ -250,6 +250,18 @@ function toggleSkill(id) {
     });
     document.getElementById(id).style.display = "block";
 }
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const exitBtn = document.querySelector(".exit-btn");
+
+    menu.classList.toggle("show");
+
+    if (menu.classList.contains("show")) {
+        exitBtn.style.display = "block";
+    } else {
+        exitBtn.style.display = "none";
+    }
+}
 function exitSite() {
     window.location.href = "https://google.com";
 }
