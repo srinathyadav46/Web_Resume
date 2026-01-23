@@ -211,3 +211,11 @@ footer {
 .stars span.active {
     color: gold;
 }
+.exit-btn {
+    display: none;
+}
+
+/* show exit button only when menu is open */
+.side-menu.show ~ .exit-btn {
+    display: block;
+}
