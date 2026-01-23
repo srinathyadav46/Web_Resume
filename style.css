@@ -55,7 +55,7 @@ body {
 }
 
 .side-menu.show {
-    left: 0;
+    right: 0;
 }
 
 .side-menu.show ~ .exit-btn {
