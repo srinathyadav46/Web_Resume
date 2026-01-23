@@ -2,54 +2,52 @@
     box-sizing: border-box;
 }
 
-/* BODY */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #2b1055, #7597de);
     color: #ffffff;
     overflow-x: hidden;
-    min-height: 100vh;
 }
 
-/* MENU BUTTON */
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0,0,0,0.35);
+}
+
+.profile-wrapper img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
 .menu-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    margin-left: auto;
     font-size: 26px;
     cursor: pointer;
-    z-index: 1001;
 }
 
-/* EXIT BUTTON */
-.exit-btn {
+/* MENU */
+.side-menu {
     position: fixed;
-    top: 18px;
-    right: 20px;
-    font-size: 22px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1100;
-    display: none;
+    top: 90px;
+    left: -240px;
+    width: 220px;
+    height: calc(100% - 90px);
+    background: rgba(0,0,0,0.85);
+    padding-top: 20px;
+    transition: 0.4s ease;
+    z-index: 1000;
 }
-
-.exit-btn:hover {
-    background: rgba(255, 0, 0, 0.7);
-}
-
-/* SIDE MENU */
-
 
 .side-menu.show {
     left: 0;
-}
-
-.side-menu.show ~ .exit-btn {
-    display: block;
 }
 
 .side-menu button {
@@ -61,53 +59,22 @@ body {
     border-radius: 25px;
     background: linear-gradient(135deg, #ff8a00, #e52e71);
     color: white;
-    font-size: 14px;
     cursor: pointer;
 }
 
-/* HEADER */
-header {
-    di.side-menu {
+/* EXIT */
+.exit-btn {
     position: fixed;
-    top: 100px;   /* 👈 push menu below header */
-    left: -240px;
-    width: 220px;
-    height: calc(100% - 100px);
-    background: rgba(0,0,0,0.85);
-    padding-top: 20px;
-    transition: 0.4s ease;
-    z-index: 1000;
-    }splay: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px;
-    background: rgba(0,0,0,0.35);
-    text-align: left;
-}
-
-/* PROFILE IMAGE */
-.profile-wrapper {
-    cursor: pointer;
-}
-
-.profile-wrapper img {
-    width: 80px;
-    height: 80px;
+    top: 18px;
+    right: 20px;
+    font-size: 22px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 8px 12px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #00e5ff;
-}
-
-/* HEADER TEXT */
-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-header h3 {
-    margin: 4px 0 0;
-    font-size: 0.9rem;
-    font-weight: 400;
+    cursor: pointer;
+    display: none;
+    z-index: 1100;
 }
 
 /* SECTIONS */
@@ -115,65 +82,18 @@ header h3 {
     display: none;
     min-height: 100vh;
     padding: 40px 25px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.4s ease;
 }
 
 .section.show {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
 }
 
-/* CARD */
 .card {
     max-width: 900px;
-    width: 90%;
-    margin: 20px auto;
+    margin: auto;
     background: rgba(255,255,255,0.15);
-    padding: 20px;
+    padding: 30px;
     border-radius: 18px;
-}
-
-.card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* LIST */
-ul {
-    padding-left: 20px;
-}
-
-/* EDUCATION / SKILLS TOGGLE */
-.edu-title {
-    background: rgba(255,255,255,0.2);
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 12px;
-}
-
-.edu-details {
-    display: none;
-    margin-left: 15px;
-    margin-top: 8px;
-}
-
-/* FEEDBACK STARS */
-.stars {
-    font-size: 32px;
-    cursor: pointer;
-    color: #aaa;
-}
-
-.stars span {
-    margin-right: 6px;
-}
-
-.stars span.active {
-    color: gold;
 }
 
 /* FOOTER */
@@ -181,47 +101,4 @@ footer {
     text-align: center;
     padding: 20px;
     background: rgba(0,0,0,0.4);
-}
-
-/* MOBILE FIX */
-@media (max-width: 600px) {
-
-    body {
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        color: #e6f7f8;
-    }
-
-    header {
-        padding: 16px;
-    }
-
-    .profile-wrapper img {
-        width: 70px;
-        height: 70px;
-    }
-
-    header h1 {
-        font-size: 1.4rem;
-    }
-
-    header h3 {
-        font-size: 0.85rem;
-    }
-
-    .menu-btn {
-        font-size: 22px;
-    }
-
-    .side-menu {
-        background: #102a43;
-    }
-
-    .side-menu button {
-        background: linear-gradient(135deg, #00c6ff, #0072ff);
-    }
-
-    footer {
-        background: #102a43;
-        color: #b2f5ea;
-    }
 }
