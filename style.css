@@ -180,3 +180,11 @@ footer {
 .edu-title:hover {
     background: rgba(255, 255, 255, 0.3);
 }
+<script>
+function toggleSkill(id) {
+    let skills = document.querySelectorAll("#skills .edu-details");
+    skills.forEach(skill => skill.style.display = "none");
+
+    document.getElementById(id).style.display = "block";
+}
+</script>
