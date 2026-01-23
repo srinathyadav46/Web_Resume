@@ -219,3 +219,43 @@ footer {
 .side-menu.show ~ .exit-btn {
     display: block;
 }
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.6rem;
+}
+
+header h3 {
+    font-size: 0.95rem;
+}
+.profile-wrapper img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+.card {
+    max-width: 900px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+}
+.card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+@media (max-width: 600px) {
+    header {
+        padding-top: 30px;
+    }
+
+    .menu-btn {
+        font-size: 22px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+}
