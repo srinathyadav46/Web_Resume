@@ -201,32 +201,41 @@
 <footer>
     Internship by IMTDA Infotech Private Limited
 </footer>
-
 <script>
-    function toggleMenu() {
-        document.getElementById("menu").classList.toggle("show");
-    }
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
 
-    function showSection(id) {
-        let sections = document.getElementsByClassName("section");
-        for (let i = 0; i < sections.length; i++) {
-            sections[i].classList.remove("show");
-            sections[i].style.display = "none";
-        }
-        let active = document.getElementById(id);
-        active.style.display = "block";
-        setTimeout(() => active.classList.add("show"), 10);
-        document.getElementById("menu").classList.remove("show");
+function showSection(id) {
+    let sections = document.getElementsByClassName("section");
+    for (let i = 0; i < sections.length; i++) {
+        sections[i].classList.remove("show");
+        sections[i].style.display = "none";
     }
+    let active = document.getElementById(id);
+    active.style.display = "block";
+    setTimeout(() => active.classList.add("show"), 10);
+    document.getElementById("menu").classList.remove("show");
+}
 
-    function toggleEdu(id) {
-        let details = document.getElementsByClassName("edu-details");
-        for (let i = 0; i < details.length; i++) {
-            details[i].style.display = "none";
-        }
-        document.getElementById(id).style.display = "block";
+function toggleEdu(id) {
+    let details = document.getElementsByClassName("edu-details");
+    for (let i = 0; i < details.length; i++) {
+        details[i].style.display = "none";
     }
+    document.getElementById(id).style.display = "block";
+}
+
+/* ✅ THIS FUNCTION IS REQUIRED FOR SKILLS */
+function toggleSkill(id) {
+    let skills = document.querySelectorAll("#skills .edu-details");
+    skills.forEach(skill => {
+        skill.style.display = "none";
+    });
+    document.getElementById(id).style.display = "block";
+}
 </script>
+
 <footer>Created By :- Srinath Yadav </footer>
 </body>
 </html>
