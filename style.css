@@ -43,7 +43,7 @@ body {
 
 /* SIDE MENU */
 .side-menu {
-    position: fixed;
+    position: flex;
     top: 0;
     right: -240px;
     width: 220px;
