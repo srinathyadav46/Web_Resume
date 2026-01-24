@@ -42,7 +42,6 @@
     <div class="card">
         <h2>Welcome</h2>
 
-        <!-- 🔒 CONTENT UNCHANGED -->
         <p>Welcome, and thank you for visiting this website. We are happy to have you here and appreciate the time you have taken to explore this platform. This space has been created to provide information, learning opportunities, and a positive experience for everyone who visits. Whether you are here for the first time or returning again, we hope you find this site useful, clear, and engaging.</p>
 
         <p>This website is designed with the goal of supporting growth, learning, and skill development. Every section has been thoughtfully prepared to help users understand concepts easily and navigate content without confusion. We believe that learning should be simple, accessible, and practical, and this platform reflects that belief.</p>
@@ -63,7 +62,7 @@
     </div>
 </div>
 
-<!-- ABOUT (UNCHANGED CONTENT) -->
+<!-- ABOUT -->
 <div id="about" class="section">
     <div class="card">
         <h2>About Me</h2>
@@ -80,7 +79,7 @@
     </div>
 </div>
 
-<!-- SKILLS (UNCHANGED CONTENT) -->
+<!-- SKILLS -->
 <div id="skills" class="section">
     <div class="card">
         <h2>Skills</h2>
@@ -122,7 +121,7 @@
     </div>
 </div>
 
-<!-- PROJECTS (NEW) -->
+<!-- PROJECTS (ADDED, DOES NOT CHANGE OTHERS) -->
 <div id="projects" class="section">
     <div class="card">
         <h2>Projects</h2>
@@ -136,8 +135,87 @@
     </div>
 </div>
 
-<!-- HOBBIES / INTERNSHIP / EDUCATION / CONTACT (UNCHANGED STRUCTURE) -->
-<!-- YOUR EXISTING CODE CONTINUES WITHOUT ANY CONTENT CHANGE -->
+<!-- HOBBIES -->
+<div id="hobbies" class="section">
+    <div class="card">
+        <h2>Hobbies</h2>
+        <ul>
+            <li>Learning new technologies</li>
+            <li>Practicing Python problems</li>
+            <li>Listening to music</li>
+            <li>Exploring the internet</li>
+            <li>Self-learning through projects</li>
+        </ul>
+    </div>
+</div>
+
+<!-- INTERNSHIP -->
+<div id="internship" class="section">
+    <div class="card">
+        <h2>Internship</h2>
+
+        <p><strong>IMTDA Infotech Private Limited</strong></p>
+        <p>
+            Internship in AI, Machine Learning, and Python.
+            Worked on basic ML concepts, Python coding, and real-world examples.
+        </p>
+
+        <p><strong>Infosys</strong></p>
+        <p>
+            Infosys is a global IT services company providing software development,
+            consulting, and digital transformation solutions.
+        </p>
+    </div>
+</div>
+
+<!-- EDUCATION -->
+<div id="education" class="section">
+    <div class="card">
+        <h2>Education</h2>
+
+        <p class="edu-title" onclick="toggleEdu('bca')">Bachelor of Computer Applications (BCA)</p>
+        <div id="bca" class="edu-details">
+            <p>CGPA: 7.5</p>
+            <p>Indus Valley Degree College</p>
+            <p>Bengaluru North University</p>
+        </div>
+
+        <p class="edu-title" onclick="toggleEdu('puc')">PUC</p>
+        <div id="puc" class="edu-details">
+            <p>Percentage: 69.5%</p>
+            <p>Samruddi PU and Degree College</p>
+        </div>
+
+        <p class="edu-title" onclick="toggleEdu('sslc')">SSLC</p>
+        <div id="sslc" class="edu-details">
+            <p>Percentage: 90.08%</p>
+            <p>Smt Vasanthi Venugopal High School</p>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+    <div class="card">
+        <h2>Contact</h2>
+
+        <p><strong>Email:</strong> srinathsrinsth195@gmail.com</p>
+        <p><strong>GitHub:</strong> srinathyadav46</p>
+
+        <p>
+            <strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank">
+                Srinath (Yadav) C
+            </a>
+        </p>
+
+        <hr>
+
+        <p><strong>HackerRank:</strong> @srinathsrinsth11</p>
+        <p><strong>LeetCode:</strong> SRINATHYADAV46</p>
+        <p><strong>Kaggle:</strong> srinathyadav46</p>
+    </div>
+</div>
 
 <footer>
     <p>© | Srinath Yadav | 2026 | Internship & Idea by IMTDA Infotech Private Limited.</p>
@@ -179,17 +257,8 @@ function downloadResume() {
 
 function rate(stars) {
     localStorage.setItem("resumeRating", stars);
-    document.querySelectorAll(".stars span").forEach((s, i) =>
-        s.classList.toggle("active", i < stars)
-    );
-    document.getElementById("rating-text").innerText =
-        "Thank you for rating " + stars + " star(s)!";
 }
 
-window.onload = () => {
-    const saved = localStorage.getItem("resumeRating");
-    if (saved) rate(saved);
-};
 </script>
 
 </body>
