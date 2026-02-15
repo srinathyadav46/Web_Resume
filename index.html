@@ -2,263 +2,597 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Srinath Yadav | Resume</title>
+<title>Srinath Yadav — Aspiring Backend Developer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Srinath Yadav — BCA student and aspiring backend developer focused on Python, modular systems, and structured CLI applications.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="exit-btn" onclick="toggleMenu()">✕</div>
-
-<header>
-    <div class="profile-wrapper">
-        <img src="1000045026 (1).jpg" alt="Profile Photo">
-    </div>
-
-    <div class="header-text">
-        <h1>Srinath Yadav</h1>
-        <h3>BCA Student | Web Development | Python</h3>
-    </div>
-
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-</header>
-
-<div class="side-menu" id="menu">
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('about')">About</button>
-    <button onclick="showSection('skills')">Skills</button>
-    <button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('hobbies')">Hobbies</button>
-    <button onclick="showSection('internship')">Internship</button>
-    <button onclick="showSection('education')">Education</button>
-    <button onclick="showSection('contact')">Contact</button>
+<!-- ==============================
+     MOBILE HEADER
+     ============================== -->
+<div class="mobile-header">
+  <div class="mobile-brand">
+    <span class="prompt">~/</span><span class="name-mono">srinath_yadav</span>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </div>
 
-<!-- HOME -->
-<div id="home" class="section show">
-    <div class="card">
-        <h2>Welcome</h2>
+<div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <ul>
+    <li><a href="#home"       onclick="navTo('home')">      <span class="nav-num">01</span> Home</a></li>
+    <li><a href="#about"      onclick="navTo('about')">     <span class="nav-num">02</span> About</a></li>
+    <li><a href="#skills"     onclick="navTo('skills')">    <span class="nav-num">03</span> Skills</a></li>
+    <li><a href="#projects"   onclick="navTo('projects')">  <span class="nav-num">04</span> Projects</a></li>
+    <li><a href="#internship" onclick="navTo('internship')"><span class="nav-num">05</span> Internship</a></li>
+    <li><a href="#learning"   onclick="navTo('learning')">  <span class="nav-num">06</span> Learning</a></li>
+    <li><a href="#education"  onclick="navTo('education')"> <span class="nav-num">07</span> Education</a></li>
+    <li><a href="#goals"      onclick="navTo('goals')">     <span class="nav-num">08</span> Goals</a></li>
+    <li><a href="#contact"    onclick="navTo('contact')">   <span class="nav-num">09</span> Contact</a></li>
+  </ul>
+</nav>
 
-        <p>Welcome, and thank you for visiting this website. We are happy to have you here and appreciate the time you have taken to explore this platform. This space has been created to provide information, learning opportunities, and a positive experience for everyone who visits. Whether you are here for the first time or returning again, we hope you find this site useful, clear, and engaging.</p>
-
-        <p>This website is designed with the goal of supporting growth, learning, and skill development. Every section has been thoughtfully prepared to help users understand concepts easily and navigate content without confusion. We believe that learning should be simple, accessible, and practical, and this platform reflects that belief.</p>
-
-        <p>As you move through the content, you will discover resources and information that encourage curiosity and continuous improvement. Take your time to explore each part and make the most of what is available. Learning is a journey, not a race, and every step forward adds value to your knowledge and experience.</p>
-
-        <p>This platform also promotes a positive and respectful learning environment. Everyone comes from a different background and level of understanding, and that diversity is important. By staying open to new ideas and perspectives, we create a space where growth becomes possible for everyone.</p>
-
-        <p>Challenges are a natural part of learning, and you may face moments that require patience and effort. These moments are important because they help build confidence and problem-solving skills. Do not be discouraged by difficulties. With consistency and dedication, progress will always follow.</p>
-
-        <p>We encourage you to stay motivated and proactive while using this website. Make use of the available information, practice regularly, and apply what you learn whenever possible. Small efforts made consistently can lead to meaningful results over time.</p>
-
-        <p>This website is more than just a collection of pages. It represents an opportunity to learn, grow, and prepare for future goals. Your time and effort here are valuable, and we hope this platform supports you in moving closer to your ambitions.</p>
-
-        <p>Thank you once again for visiting. We are glad to have you as part of this learning journey and hope your experience here is both productive and enjoyable. We wish you success and growth as you continue exploring and learning through this platform.</p>
-
-        <button onclick="downloadResume()">Download Resume</button>
+<!-- ==============================
+     SIDEBAR
+     ============================== -->
+<aside class="sidebar" aria-label="Sidebar navigation">
+  <div class="sidebar-top">
+    <div class="avatar-wrap">
+      <img src="1000045026 (1).jpg" alt="Photo of Srinath Yadav" class="avatar">
+      <div class="status-dot" title="Open to opportunities"></div>
     </div>
-</div>
-
-<!-- ABOUT -->
-<div id="about" class="section">
-    <div class="card">
-        <h2>About Me</h2>
-
-        <p>Hello, and welcome to my page. I am a motivated and enthusiastic student with a strong interest in learning new technologies and improving my skills. I enjoy exploring concepts related to computing, web development, and programming, and I am always eager to gain practical experience that helps me grow both personally and professionally.</p>
-
-        <p>I am currently focused on building a solid foundation in technical and problem-solving skills. I believe that consistent learning and hands-on practice are the keys to success in today’s fast-changing digital world. I enjoy working on small projects, experimenting with code, and understanding how technology can be used to solve real-world problems.</p>
-
-        <p>Along with technical learning, I value discipline, responsibility, and continuous self-improvement. I try to approach every task with dedication and a positive mindset. I believe that challenges are opportunities to learn, and I make an effort to improve myself by learning from mistakes and feedback.</p>
-
-        <p>I am also interested in teamwork and collaboration. Working with others helps me learn new perspectives and develop better communication skills. I respect different ideas and believe that sharing knowledge leads to better outcomes and personal growth.</p>
-
-        <p>My goal is to continue learning, gaining experience, and developing skills that will help me build a successful career. I am eager to take on new opportunities that allow me to apply my knowledge, learn from experienced professionals, and contribute meaningfully to projects and organizations. Thank you for taking the time to learn more about me.</p>
+    <div class="sidebar-identity">
+      <h2 class="sidebar-name">Srinath Yadav</h2>
+      <p class="sidebar-role"><span class="prompt-char">&gt;</span> Aspiring Backend Dev</p>
+      <p class="sidebar-edu">BCA Student · Python</p>
     </div>
-</div>
+  </div>
 
-<!-- SKILLS -->
-<div id="skills" class="section">
-    <div class="card">
-        <h2>Skills</h2>
+  <nav class="sidebar-nav" aria-label="Section navigation">
+    <a class="nav-link active" onclick="showSection('home')"       data-section="home">      <span class="nav-num">01</span><span class="nav-label">Home</span></a>
+    <a class="nav-link"       onclick="showSection('about')"      data-section="about">     <span class="nav-num">02</span><span class="nav-label">About</span></a>
+    <a class="nav-link"       onclick="showSection('skills')"     data-section="skills">    <span class="nav-num">03</span><span class="nav-label">Skills</span></a>
+    <a class="nav-link"       onclick="showSection('projects')"   data-section="projects">  <span class="nav-num">04</span><span class="nav-label">Projects</span></a>
+    <a class="nav-link"       onclick="showSection('internship')" data-section="internship"><span class="nav-num">05</span><span class="nav-label">Internship</span></a>
+    <a class="nav-link"       onclick="showSection('learning')"   data-section="learning">  <span class="nav-num">06</span><span class="nav-label">Learning</span></a>
+    <a class="nav-link"       onclick="showSection('education')"  data-section="education"> <span class="nav-num">07</span><span class="nav-label">Education</span></a>
+    <a class="nav-link"       onclick="showSection('goals')"      data-section="goals">     <span class="nav-num">08</span><span class="nav-label">Goals</span></a>
+    <a class="nav-link"       onclick="showSection('contact')"    data-section="contact">   <span class="nav-num">09</span><span class="nav-label">Contact</span></a>
+  </nav>
 
-        <p class="edu-title" onclick="toggleSkill('web')">Web Development</p>
-        <div id="web" class="edu-details">
-            <ul>
-                <li>HTML5 – Semantic structure</li>
-                <li>CSS3 – Responsive layouts</li>
-                <li>Basic JavaScript – DOM manipulation</li>
-            </ul>
-        </div>
-
-        <p class="edu-title" onclick="toggleSkill('programming')">Programming</p>
-        <div id="programming" class="edu-details">
-            <ul>
-                <li>Python – Basics and problem solving</li>
-                <li>Basic understanding of algorithms</li>
-            </ul>
-        </div>
-
-        <p class="edu-title" onclick="toggleSkill('tools')">Tools & Platforms</p>
-        <div id="tools" class="edu-details">
-            <ul>
-                <li>Git & GitHub</li>
-                <li>VS Code</li>
-                <li>Linux basics</li>
-            </ul>
-        </div>
-
-        <p class="edu-title" onclick="toggleSkill('soft')">Soft Skills</p>
-        <div id="soft" class="edu-details">
-            <ul>
-                <li>Problem solving</li>
-                <li>Self-learning</li>
-                <li>Time management</li>
-            </ul>
-        </div>
+  <div class="sidebar-bottom">
+    <div class="sidebar-links">
+      <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">GH</a>
+      <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">LI</a>
     </div>
-</div>
+    <p class="sidebar-copy">&copy; 2026 Srinath Yadav</p>
+  </div>
+</aside>
 
-<!-- PROJECTS (ADDED, DOES NOT CHANGE OTHERS) -->
-<div id="projects" class="section">
-    <div class="card">
-        <h2>Projects</h2>
+<!-- ==============================
+     MAIN CONTENT
+     ============================== -->
+<main class="main-content">
 
-        <h3>Personal Resume Website</h3>
-        <p>
-            A responsive personal resume website built using HTML, CSS, and JavaScript.
-            Includes interactive navigation, skill toggles, feedback system, and mobile-first design.
+  <!-- 01 · HOME -->
+  <section id="home" class="section active" aria-label="Introduction">
+    <div class="section-inner">
+      <div class="home-hero">
+        <div class="hero-label"><span class="prompt-char">$</span> cat profile.txt</div>
+        <h1 class="hero-name">Srinath<br>Yadav<span class="cursor-blink">_</span></h1>
+        <p class="hero-tagline">Aspiring Backend Developer · Python &amp; Structured Systems</p>
+        <p class="hero-desc">
+          BCA student building a strong foundation in backend fundamentals — structured Python, modular CLI applications, and clean system design. I learn through execution: design, build, refactor, repeat.
         </p>
-        <p><strong>Tech Used:</strong> HTML, CSS, JavaScript</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="showSection('projects')">View Projects</button>
+          <button class="btn-ghost"   onclick="downloadResume()">Download Resume</button>
+        </div>
+        <div class="tech-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">HTML / CSS</span>
+          <span class="stack-tag">Git</span>
+          <span class="stack-tag">Linux</span>
+          <span class="stack-tag">VS Code</span>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- HOBBIES -->
-<div id="hobbies" class="section">
-    <div class="card">
-        <h2>Hobbies</h2>
-        <ul>
-            <li>Learning new technologies</li>
-            <li>Practicing Python problems</li>
-            <li>Listening to music</li>
-            <li>Exploring the internet</li>
-            <li>Self-learning through projects</li>
-        </ul>
+  <!-- 02 · ABOUT -->
+  <section id="about" class="section" aria-label="About">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="content-grid">
+        <div class="about-block">
+          <p class="about-text">
+            I am a BCA student with a deliberate focus on backend development and structured programming. My approach is to understand systems before building them — breaking problems into components, designing clean interfaces, and writing modular code.
+          </p>
+          <p class="about-text">
+            I work primarily in Python, building CLI applications that practice real design principles: CRUD operations, JSON-based persistence, input validation, and function-level separation of concerns.
+          </p>
+          <p class="about-text">
+            Currently strengthening core fundamentals before expanding into full backend frameworks. The goal is a solid base in data flow, system architecture, and database integration — built to last, not just to work.
+          </p>
+        </div>
+        <div class="about-values">
+          <div class="value-item">
+            <span class="value-icon" aria-hidden="true">◈</span>
+            <div>
+              <p class="value-title">Structured Thinking</p>
+              <p class="value-desc">Design the solution before writing the first line</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon" aria-hidden="true">◈</span>
+            <div>
+              <p class="value-title">Modular Design</p>
+              <p class="value-desc">Each function owns one responsibility. Each module owns one domain.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon" aria-hidden="true">◈</span>
+            <div>
+              <p class="value-title">Project-Based Learning</p>
+              <p class="value-desc">Build, refactor, and improve — not just read and watch</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon" aria-hidden="true">◈</span>
+            <div>
+              <p class="value-title">Scalability Mindset</p>
+              <p class="value-desc">Write code that can grow — structured from day one</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- INTERNSHIP -->
-<div id="internship" class="section">
-    <div class="card">
-        <h2>Internship</h2>
+  <!-- 03 · SKILLS -->
+  <section id="skills" class="section" aria-label="Skills">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Skills</h2>
+      </div>
+      <div class="skills-grid">
 
-        <p><strong>IMTDA Infotech Private Limited</strong></p>
-        <p>
-            Internship in AI, Machine Learning, and Python.
-            Worked on basic ML concepts, Python coding, and real-world examples.
-        </p>
-
-        <p><strong>Infosys</strong></p>
-        <p>
-            Infosys is a global IT services company providing software development,
-            consulting, and digital transformation solutions.
-        </p>
-    </div>
-</div>
-
-<!-- EDUCATION -->
-<div id="education" class="section">
-    <div class="card">
-        <h2>Education</h2>
-
-        <p class="edu-title" onclick="toggleEdu('bca')">Bachelor of Computer Applications (BCA)</p>
-        <div id="bca" class="edu-details">
-            <p>CGPA: 7.5</p>
-            <p>Indus Valley Degree College</p>
-            <p>Bengaluru North University</p>
+        <div class="skill-category">
+          <h3 class="skill-cat-title"><span class="prompt-char" aria-hidden="true">//</span> Programming</h3>
+          <ul class="skill-list">
+            <li><span class="skill-dot" aria-hidden="true"></span>Python — Primary language</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>OOP — Classes, encapsulation, inheritance</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>File Handling — Read/write operations</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>JSON persistence</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>CLI Application Development</li>
+          </ul>
         </div>
 
-        <p class="edu-title" onclick="toggleEdu('puc')">PUC</p>
-        <div id="puc" class="edu-details">
-            <p>Percentage: 69.5%</p>
-            <p>Samruddi PU and Degree College</p>
+        <div class="skill-category">
+          <h3 class="skill-cat-title"><span class="prompt-char" aria-hidden="true">//</span> Web Development</h3>
+          <ul class="skill-list">
+            <li><span class="skill-dot" aria-hidden="true"></span>HTML5 — Semantic markup</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>CSS3 — Responsive, mobile-first layouts</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>JavaScript — DOM manipulation, events</li>
+          </ul>
         </div>
 
-        <p class="edu-title" onclick="toggleEdu('sslc')">SSLC</p>
-        <div id="sslc" class="edu-details">
-            <p>Percentage: 90.08%</p>
-            <p>Smt Vasanthi Venugopal High School</p>
+        <div class="skill-category">
+          <h3 class="skill-cat-title"><span class="prompt-char" aria-hidden="true">//</span> Tools &amp; Platforms</h3>
+          <ul class="skill-list">
+            <li><span class="skill-dot" aria-hidden="true"></span>Git — Version control, branching</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>GitHub — Repository management</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>VS Code — Primary editor</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Linux — Terminal, filesystem, bash basics</li>
+          </ul>
         </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title"><span class="prompt-char" aria-hidden="true">//</span> Core Concepts</h3>
+          <ul class="skill-list">
+            <li><span class="skill-dot" aria-hidden="true"></span>CRUD operations</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Input validation &amp; error handling</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Modular program design</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Data persistence patterns</li>
+            <li><span class="skill-dot" aria-hidden="true"></span>Separation of concerns</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- CONTACT -->
-<div id="contact" class="section">
-    <div class="card">
-        <h2>Contact</h2>
+  <!-- 04 · PROJECTS -->
+  <section id="projects" class="section" aria-label="Projects">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-list">
 
-        <p><strong>Email:</strong> srinathsrinsth195@gmail.com</p>
-        <p><strong>GitHub:</strong> srinathyadav46</p>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-meta">
+              <span class="project-type">CLI Application</span>
+              <h3 class="project-name">Student Management System</h3>
+            </div>
+            <div class="project-header-right">
+              <div class="project-status done">Completed</div>
+              <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="project-gh-link" aria-label="View on GitHub">
+                <span class="gh-icon" aria-hidden="true">GH</span> View Repo
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">A Python CLI application for managing student records with full data persistence, analytics, and modular architecture.</p>
+          <ul class="project-features">
+            <li>Full CRUD operations — create, read, update, delete student records</li>
+            <li>JSON-based persistent data storage across sessions</li>
+            <li>Input validation and structured error handling</li>
+            <li>Calculates class average and identifies top scorer</li>
+            <li>Refactored from monolithic script to modular function-based architecture</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">JSON</span>
+            <span class="tech-badge">File I/O</span>
+            <span class="tech-badge">Modular Design</span>
+          </div>
+        </div>
 
-        <p>
-            <strong>LinkedIn:</strong>
-            <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank">
-                Srinath (Yadav) C
-            </a>
-        </p>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-meta">
+              <span class="project-type">CLI Application</span>
+              <h3 class="project-name">Smart Expense Tracker</h3>
+            </div>
+            <div class="project-header-right">
+              <div class="project-status wip">In Progress</div>
+              <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="project-gh-link" aria-label="View on GitHub">
+                <span class="gh-icon" aria-hidden="true">GH</span> View Repo
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">A categorized expense tracking tool designed with scalability in mind — structured to support a database backend as the next iteration.</p>
+          <ul class="project-features">
+            <li>Tracks daily expenses with date, category, and amount</li>
+            <li>Categorized spending summaries per time period</li>
+            <li>Modular structure — separate layers for input, logic, and storage</li>
+            <li>Planned migration from JSON to SQLite for relational persistence</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Modular Design</span>
+            <span class="tech-badge">SQLite (Planned)</span>
+          </div>
+        </div>
 
-        <hr>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-meta">
+              <span class="project-type">Web Application</span>
+              <h3 class="project-name">Personal Resume Website</h3>
+            </div>
+            <div class="project-header-right">
+              <div class="project-status done">Completed</div>
+              <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="project-gh-link" aria-label="View on GitHub">
+                <span class="gh-icon" aria-hidden="true">GH</span> View Repo
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">A responsive, mobile-first resume website built without frameworks — pure HTML, CSS, and JavaScript.</p>
+          <ul class="project-features">
+            <li>Mobile-first responsive design with structured breakpoints</li>
+            <li>Interactive navigation with smooth section transitions</li>
+            <li>Semantically structured content sections for clarity</li>
+            <li>Zero dependencies — no frameworks or build tools</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">JavaScript</span>
+          </div>
+        </div>
 
-        <p><strong>HackerRank:</strong> @srinathsrinsth11</p>
-        <p><strong>LeetCode:</strong> SRINATHYADAV46</p>
-        <p><strong>Kaggle:</strong> srinathyadav46</p>
+      </div>
     </div>
-</div>
+  </section>
 
-<footer>
-    <p>© | 2026 | Srinath Yadav | Internship & Idea by IMTDA Infotech Private Limited.</p>
-</footer>
+  <!-- 05 · INTERNSHIP -->
+  <section id="internship" class="section" aria-label="Internship">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Internship</h2>
+      </div>
+      <div class="experience-block">
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-company">IMTDA Infotech Private Limited</h3>
+              <p class="exp-role">Internship — AI &amp; Python</p>
+            </div>
+            <span class="exp-badge">Internship</span>
+          </div>
+          <div class="exp-divider"></div>
+          <p class="exp-label"><span class="prompt-char" aria-hidden="true">//</span> Learning Outcomes</p>
+          <ul class="exp-points">
+            <li>Exposure to supervised and unsupervised machine learning concepts</li>
+            <li>Worked with real-world datasets — data cleaning and preprocessing pipelines</li>
+            <li>Applied Python to ML workflows: feature handling, model evaluation basics</li>
+            <li>Strengthened core Python skills in a structured, applied context</li>
+            <li>Understood the end-to-end flow of a basic ML pipeline</li>
+          </ul>
+          <div class="exp-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">ML Fundamentals</span>
+            <span class="tech-badge">Data Preprocessing</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-company">Infosys</h3>
+              <p class="exp-role">Training Program</p>
+            </div>
+            <span class="exp-badge">Training</span>
+          </div>
+          <div class="exp-divider"></div>
+          <ul class="exp-points">
+            <li>Exposure to enterprise software development practices and workflows</li>
+            <li>Understanding of structured programming in a professional environment</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · CURRENTLY LEARNING -->
+  <section id="learning" class="section" aria-label="Currently Learning">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Currently Learning</h2>
+      </div>
+      <div class="learning-grid">
+
+        <div class="learning-card">
+          <div class="learning-icon" aria-hidden="true">⬡</div>
+          <h3 class="learning-topic">Modular Python Projects</h3>
+          <p class="learning-desc">Structuring multi-file Python projects with clear module boundaries, shared utilities, and defined interfaces between components.</p>
+        </div>
+
+        <div class="learning-card">
+          <div class="learning-icon" aria-hidden="true">⬡</div>
+          <h3 class="learning-topic">SQLite Integration</h3>
+          <p class="learning-desc">Migrating from JSON storage to relational databases — schema design, queries, and Python DB-API via the <code>sqlite3</code> module.</p>
+        </div>
+
+        <div class="learning-card">
+          <div class="learning-icon" aria-hidden="true">⬡</div>
+          <h3 class="learning-topic">Backend Fundamentals</h3>
+          <p class="learning-desc">REST principles, HTTP request/response lifecycle, routing logic, and the foundations of server-side application architecture.</p>
+        </div>
+
+        <div class="learning-card">
+          <div class="learning-icon" aria-hidden="true">⬡</div>
+          <h3 class="learning-topic">System Design Basics</h3>
+          <p class="learning-desc">Scalability concepts, separation of concerns, designing for maintainability, and thinking about systems before writing code.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · EDUCATION -->
+  <section id="education" class="section" aria-label="Education">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="edu-timeline">
+
+        <div class="edu-item">
+          <div class="edu-marker">
+            <div class="edu-dot"></div>
+            <div class="edu-line"></div>
+          </div>
+          <div class="edu-content">
+            <span class="edu-level">Current</span>
+            <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+            <p class="edu-institution">Indus Valley Degree College · Bengaluru North University</p>
+            <div class="edu-stat">
+              <span class="stat-label">CGPA</span>
+              <span class="stat-value">7.5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-marker">
+            <div class="edu-dot small"></div>
+            <div class="edu-line"></div>
+          </div>
+          <div class="edu-content">
+            <span class="edu-level">PUC</span>
+            <h3 class="edu-degree">Pre-University Certificate (Science)</h3>
+            <p class="edu-institution">Samruddi PU and Degree College</p>
+            <div class="edu-stat">
+              <span class="stat-label">Percentage</span>
+              <span class="stat-value">69.5%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-marker">
+            <div class="edu-dot small"></div>
+          </div>
+          <div class="edu-content">
+            <span class="edu-level">SSLC</span>
+            <h3 class="edu-degree">Secondary School Leaving Certificate</h3>
+            <p class="edu-institution">Smt Vasanthi Venugopal High School</p>
+            <div class="edu-stat">
+              <span class="stat-label">Percentage</span>
+              <span class="stat-value">90.08%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · FUTURE GOALS -->
+  <section id="goals" class="section" aria-label="Future Goals">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2 class="section-title">Future Goals</h2>
+      </div>
+      <div class="goals-terminal" role="img" aria-label="Goals written as Python code">
+        <div class="terminal-bar">
+          <span class="t-dot red"    aria-hidden="true"></span>
+          <span class="t-dot yellow" aria-hidden="true"></span>
+          <span class="t-dot green"  aria-hidden="true"></span>
+          <span class="t-title">goals.py</span>
+        </div>
+        <div class="terminal-body">
+          <p class="t-line"><span class="t-kw">goals</span> <span class="t-op">=</span> [</p>
+          <p class="t-line t-indent"><span class="t-str">"Strengthen backend development with Python web frameworks and REST APIs"</span><span class="t-op">,</span></p>
+          <p class="t-line t-indent"><span class="t-str">"Learn database design and query optimization — PostgreSQL, SQLite"</span><span class="t-op">,</span></p>
+          <p class="t-line t-indent"><span class="t-str">"Contribute to open-source or production-level software projects"</span><span class="t-op">,</span></p>
+          <p class="t-line t-indent"><span class="t-str">"Secure a junior backend or Python developer role post-graduation"</span></p>
+          <p class="t-line">]</p>
+          <p class="t-line t-blank"></p>
+          <p class="t-line"><span class="t-kw">for</span> goal <span class="t-kw">in</span> goals<span class="t-op">:</span></p>
+          <p class="t-line t-indent"><span class="t-fn">execute</span>(goal)  <span class="t-comment"># one step at a time</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · CONTACT -->
+  <section id="contact" class="section" aria-label="Contact">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-num">09</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <p class="contact-intro">Open to internship opportunities, collaborative projects, and professional conversations.</p>
+      <div class="contact-grid">
+
+        <a href="mailto:srinathsrinsth195@gmail.com" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">@</span>
+          <div>
+            <p class="contact-type">Email</p>
+            <p class="contact-value">srinathsrinsth195@gmail.com</p>
+          </div>
+        </a>
+
+        <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">GH</span>
+          <div>
+            <p class="contact-type">GitHub</p>
+            <p class="contact-value">srinathyadav46</p>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">LI</span>
+          <div>
+            <p class="contact-type">LinkedIn</p>
+            <p class="contact-value">Srinath (Yadav) C</p>
+          </div>
+        </a>
+
+        <a href="https://www.hackerrank.com/srinathsrinsth11" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">HR</span>
+          <div>
+            <p class="contact-type">HackerRank</p>
+            <p class="contact-value">@srinathsrinsth11</p>
+          </div>
+        </a>
+
+        <a href="https://leetcode.com/SRINATHYADAV46" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">LC</span>
+          <div>
+            <p class="contact-type">LeetCode</p>
+            <p class="contact-value">SRINATHYADAV46</p>
+          </div>
+        </a>
+
+        <a href="https://www.kaggle.com/srinathyadav46" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">KG</span>
+          <div>
+            <p class="contact-type">Kaggle</p>
+            <p class="contact-value">srinathyadav46</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("show");
-    document.querySelector(".exit-btn").style.display =
-        menu.classList.contains("show") ? "block" : "none";
-}
-
 function showSection(id) {
-    document.querySelectorAll(".section").forEach(sec => {
-        sec.classList.remove("show");
-        sec.style.display = "none";
-    });
-
-    const active = document.getElementById(id);
-    active.style.display = "block";
-    setTimeout(() => active.classList.add("show"), 10);
-    toggleMenu();
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const target = document.getElementById(id);
+  if (target) {
+    target.style.animation = 'none';
+    target.offsetHeight;
+    target.style.animation = '';
+    target.classList.add('active');
+  }
+  const navLink = document.querySelector('[data-section="' + id + '"]');
+  if (navLink) navLink.classList.add('active');
 }
 
-function toggleEdu(id) {
-    document.querySelectorAll(".edu-details").forEach(e => e.style.display = "none");
-    document.getElementById(id).style.display = "block";
+function navTo(id) {
+  showSection(id);
+  closeMobileMenu();
 }
 
-function toggleSkill(id) {
-    document.querySelectorAll("#skills .edu-details").forEach(e => e.style.display = "none");
-    document.getElementById(id).style.display = "block";
+function toggleMobileMenu() {
+  const nav     = document.getElementById('mobileNav');
+  const overlay = document.getElementById('mobileOverlay');
+  const ham     = document.getElementById('hamburger');
+  const isOpen  = nav.classList.contains('open');
+  nav.classList.toggle('open');
+  overlay.classList.toggle('open');
+  ham.classList.toggle('open');
+  ham.setAttribute('aria-expanded', String(!isOpen));
 }
 
-function downloadResume() {
-    window.print();
+function closeMobileMenu() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('mobileOverlay').classList.remove('open');
+  const ham = document.getElementById('hamburger');
+  ham.classList.remove('open');
+  ham.setAttribute('aria-expanded', 'false');
 }
 
-function rate(stars) {
-    localStorage.setItem("resumeRating", stars);
-}
+function downloadResume() { window.print(); }
 
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMobileMenu();
+});
 </script>
 
 </body>
