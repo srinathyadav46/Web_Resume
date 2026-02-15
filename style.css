@@ -1,65 +1,79 @@
-/* =============================================
-   SRINATH YADAV — DEVELOPER RESUME
-   Theme: Terminal Dark · Minimal · Professional
-   ============================================= */
+/* ==========================================================
+   SRINATH YADAV — PORTFOLIO
+   Theme: Terminal Dark · Minimal · Backend-Focused
+   ========================================================== */
 
-/* =============================================
-   1. DESIGN TOKENS (CSS VARIABLES)
-   ============================================= */
+/* ==========================================================
+   1. DESIGN TOKENS
+   ========================================================== */
 :root {
-  /* Backgrounds */
-  --bg:        #080d18;
-  --surface:   #0d1424;
-  --surface2:  #131c30;
-  --surface3:  #192038;
+  /* ── Background layers ─────────────────────────────────── */
+  --bg:         #080d18;
+  --surface:    #0d1424;
+  --surface-2:  #131c30;
 
-  /* Borders — reduced usage; use sparingly */
-  --border:    #1c2640;
-  --border-hi: #28385a;
+  /* ── Borders ────────────────────────────────────────────── */
+  --border:     #1c2640;
+  --border-hi:  #28385a;
 
-  /* Brand accent */
-  --accent:    #22d3ee;
-  --accent-lo: rgba(34, 211, 238, 0.10);
-  --accent-bd: rgba(34, 211, 238, 0.22);
+  /* ── Brand accent ───────────────────────────────────────── */
+  --accent:     #22d3ee;
+  --accent-lo:  rgba(34, 211, 238, 0.09);
+  --accent-bd:  rgba(34, 211, 238, 0.22);
 
-  /* Semantic status colors */
-  --green:     #34d399;
-  --green-lo:  rgba(52, 211, 153, 0.10);
-  --green-bd:  rgba(52, 211, 153, 0.22);
-  --amber:     #fbbf24;
-  --amber-lo:  rgba(251, 191, 36, 0.10);
-  --amber-bd:  rgba(251, 191, 36, 0.22);
+  /* ── Status colours ─────────────────────────────────────── */
+  --green:      #34d399;
+  --green-lo:   rgba(52, 211, 153, 0.10);
+  --green-bd:   rgba(52, 211, 153, 0.22);
+  --amber:      #fbbf24;
+  --amber-lo:   rgba(251, 191, 36, 0.10);
+  --amber-bd:   rgba(251, 191, 36, 0.22);
 
-  /* Text — improved contrast across the board */
-  --text:      #e8edf5;   /* primary   — very readable */
-  --text-2:    #8899b8;   /* secondary — lifted from previous dim value */
-  --text-3:    #566382;   /* tertiary  — labels, stamps */
+  /* ── Text scale — WCAG-compliant contrast ratios ────────── */
+  --text:       #e8edf5;   /* primary   — 12:1 on --bg  */
+  --text-2:     #8da0bb;   /* secondary — 5.4:1 on --bg */
+  --text-3:     #5a6f8a;   /* tertiary  — labels only   */
 
-  /* Typography scale */
-  --font-body: 'DM Sans', sans-serif;
-  --font-head: 'Syne', sans-serif;
-  --font-mono: 'Fira Code', monospace;
+  /* ── Fonts ──────────────────────────────────────────────── */
+  --font-body:  'DM Sans', sans-serif;
+  --font-head:  'Syne', sans-serif;
+  --font-mono:  'Fira Code', monospace;
 
-  /* Layout */
+  /* ── Layout ─────────────────────────────────────────────── */
   --sidebar-w:  256px;
   --header-h:   56px;
 
-  /* Transitions — single source of truth */
-  --tx-fast:   120ms ease;
-  --tx-base:   200ms ease;
-  --tx-slow:   320ms ease;
+  /* ── Z-index stack (highest first):
+        mobile-header  600
+        mobile-nav     500
+        overlay        400
+        sidebar        100
+        content          0
+     ─────────────────────────────────────────────────────── */
+  --z-header:   600;
+  --z-nav:      500;
+  --z-overlay:  400;
+  --z-sidebar:  100;
+
+  /* ── Transitions ────────────────────────────────────────── */
+  --tx-fast:    120ms ease;
+  --tx-base:    200ms ease;
+  --tx-slow:    300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* =============================================
+/* ==========================================================
    2. RESET & BASE
-   ============================================= */
+   ========================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
+  margin:  0;
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  /* Prevent iOS from zooming on input focus */
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   font-family: var(--font-body);
@@ -67,20 +81,24 @@ body {
   line-height: 1.6;
   background: var(--bg);
   color: var(--text);
+  /* Single place to block horizontal scroll */
   overflow-x: hidden;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Accessible focus ring — visible everywhere */
+/* Visible focus ring for keyboard navigation */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
+/* Remove default link decoration */
 a { color: inherit; text-decoration: none; }
 
+/* Inline code */
 code {
   font-family: var(--font-mono);
   font-size: 0.85em;
@@ -90,113 +108,190 @@ code {
   border-radius: 3px;
 }
 
-/* =============================================
-   3. TYPOGRAPHY HELPERS
-   ============================================= */
+/* Screen-reader-only utility */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================
+   3. TYPE HELPERS
+   ========================================================== */
 .prompt-char { color: var(--accent); font-family: var(--font-mono); }
 .prompt      { color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem; }
 .name-mono   { font-family: var(--font-mono); color: var(--text); font-size: 0.9rem; }
 
-/* =============================================
+/* ==========================================================
    4. MOBILE HEADER
-   ============================================= */
+   ========================================================== */
 .mobile-header {
-  display: none;
+  display: none;            /* shown only in mobile media query */
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--header-h);
-  background: rgba(8, 13, 24, 0.96);
+  background: rgba(8, 13, 24, 0.97);
   border-bottom: 1px solid var(--border);
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  z-index: 200;
+  padding: 0 18px;
+  z-index: var(--z-header);  /* highest — always above nav+overlay */
 }
 
-.mobile-brand { display: flex; align-items: center; gap: 3px; }
+.mobile-brand {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  /* Prevent brand text from overflowing on very small screens */
+  min-width: 0;
+  overflow: hidden;
+}
+.mobile-brand .name-mono {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-/* Hamburger */
+/* ==========================================================
+   5. HAMBURGER BUTTON
+   ========================================================== */
 .hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
+  /* Minimum 44×44 touch target per WCAG 2.5.5 */
+  width:  44px;
+  height: 44px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
-  padding: 5px;
-  border-radius: 4px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
   transition: background var(--tx-base);
 }
-.hamburger:hover { background: var(--surface2); }
+.hamburger:hover  { background: var(--surface-2); }
+.hamburger:active { background: var(--border); }
 
 .hamburger span {
   display: block;
   width: 20px; height: 2px;
   background: var(--text-2);
   border-radius: 2px;
-  transition: transform var(--tx-base), opacity var(--tx-base);
+  transition: transform var(--tx-base), opacity var(--tx-fast), background var(--tx-base);
+  pointer-events: none;           /* prevent ghost clicks on spans */
 }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* =============================================
-   5. MOBILE NAV
-   ============================================= */
+/* ==========================================================
+   6. MOBILE NAV OVERLAY
+   ========================================================== */
+/*
+   KEY FIX: Use visibility + pointer-events instead of display: none/block.
+   display toggling is not animatable — opacity transition never fires.
+   visibility allows the opacity fade while keeping it removed from
+   pointer interactions when closed.
+*/
 .mobile-nav-overlay {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 210;
-  opacity: 0;
-  transition: opacity var(--tx-slow);
-}
-.mobile-nav-overlay.open { opacity: 1; }
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: var(--z-overlay);
 
+  /* Closed state */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  /* Close transition: opacity fades, then visibility hides after fade */
+  transition:
+    opacity    var(--tx-slow),
+    visibility 0s  var(--tx-slow);
+}
+
+.mobile-nav-overlay.open {
+  /* Open state */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  /* Open transition: visibility snaps, then opacity fades in */
+  transition:
+    opacity    var(--tx-slow),
+    visibility 0s  0s;
+}
+
+/* ==========================================================
+   7. MOBILE NAV DRAWER
+   ========================================================== */
 .mobile-nav {
   position: fixed;
-  top: var(--header-h); right: 0;
-  width: 210px;
+  top: var(--header-h);
+  right: 0;
+  width: 220px;
   height: calc(100vh - var(--header-h));
   background: var(--surface);
   border-left: 1px solid var(--border);
-  padding: 16px 0;
-  transform: translateX(100%);
-  transition: transform var(--tx-slow) cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 220;
+  padding: 12px 0;
+  z-index: var(--z-nav);            /* below header, above overlay */
   overflow-y: auto;
+  overflow-x: hidden;
+  /* Closed: slide off-screen */
+  transform: translateX(100%);
+  transition: transform var(--tx-slow);
 }
 .mobile-nav.open { transform: translateX(0); }
 
-.mobile-nav ul { list-style: none; }
+.mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-.mobile-nav a {
+/* Mobile nav links — also use data-section for active state sync */
+.mob-nav-link {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 13px 22px;
+  /* 48px tall for touch friendliness */
+  min-height: 48px;
+  padding: 0 20px;
   color: var(--text-2);
   font-size: 0.9rem;
   font-weight: 500;
-  transition: color var(--tx-base), background var(--tx-base), border-color var(--tx-base);
   border-left: 3px solid transparent;
+  transition: color var(--tx-base), background var(--tx-base), border-color var(--tx-base);
+  cursor: pointer;
 }
-.mobile-nav a:hover {
+.mob-nav-link:hover {
   color: var(--text);
-  background: var(--surface2);
+  background: var(--surface-2);
+  border-left-color: var(--border-hi);
+}
+.mob-nav-link.active {
+  color: var(--accent);
+  background: var(--accent-lo);
   border-left-color: var(--accent);
 }
 
 .mobile-nav .nav-num {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--accent);
-  opacity: 0.6;
+  opacity: 0.55;
+  flex-shrink: 0;
 }
 
-/* =============================================
-   6. SIDEBAR
-   ============================================= */
+/* ==========================================================
+   8. SIDEBAR (desktop)
+   ========================================================== */
 .sidebar {
   position: fixed;
   top: 0; left: 0;
@@ -206,16 +301,16 @@ code {
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  z-index: var(--z-sidebar);
   overflow: hidden;
 }
 
 .sidebar-top {
-  padding: 26px 22px 20px;
+  padding: 24px 20px 18px;
   border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
-/* Avatar — no pulse animation; status shown via dot */
 .avatar-wrap {
   position: relative;
   display: inline-block;
@@ -223,7 +318,7 @@ code {
 }
 
 .avatar {
-  width: 60px; height: 60px;
+  width: 58px; height: 58px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--border-hi);
@@ -232,7 +327,7 @@ code {
 
 .status-dot {
   position: absolute;
-  bottom: 2px; right: 2px;
+  bottom: 1px; right: 1px;
   width: 11px; height: 11px;
   background: var(--green);
   border-radius: 50%;
@@ -241,7 +336,7 @@ code {
 
 .sidebar-name {
   font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 0.97rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 4px;
@@ -250,45 +345,46 @@ code {
 
 .sidebar-role {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   color: var(--accent);
   margin-bottom: 3px;
 }
 
 .sidebar-edu {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-3);
 }
 
-/* =============================================
-   7. SIDEBAR NAV
-   ============================================= */
+/* ==========================================================
+   9. SIDEBAR NAV
+   ========================================================== */
 .sidebar-nav {
   flex: 1;
-  padding: 12px 0;
+  padding: 10px 0;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .nav-link {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 22px;
+  /* 40px tall — comfortable click target on desktop */
+  min-height: 40px;
+  padding: 0 20px;
   color: var(--text-2);
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 500;
   cursor: pointer;
   border-left: 3px solid transparent;
   transition: color var(--tx-base), background var(--tx-base), border-color var(--tx-base);
   user-select: none;
 }
-
 .nav-link:hover {
   color: var(--text);
-  background: var(--surface2);
+  background: var(--surface-2);
   border-left-color: var(--border-hi);
 }
-
 .nav-link.active {
   color: var(--accent);
   border-left-color: var(--accent);
@@ -297,35 +393,39 @@ code {
 
 .nav-num {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: var(--text-3);
   min-width: 20px;
   flex-shrink: 0;
 }
-
 .nav-link.active .nav-num { color: var(--accent); opacity: 0.5; }
 
-/* =============================================
-   8. SIDEBAR BOTTOM
-   ============================================= */
+/* ==========================================================
+   10. SIDEBAR BOTTOM
+   ========================================================== */
 .sidebar-bottom {
-  padding: 14px 22px;
+  padding: 14px 20px;
   border-top: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
-.sidebar-links { display: flex; gap: 8px; margin-bottom: 10px; }
+.sidebar-links {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
 
 .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 30px; height: 30px;
-  background: var(--surface2);
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: 5px;
   color: var(--text-2);
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 500;
   transition: color var(--tx-base), border-color var(--tx-base), background var(--tx-base);
 }
@@ -336,50 +436,60 @@ code {
 }
 
 .sidebar-copy {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-3);
   font-family: var(--font-mono);
 }
 
-/* =============================================
-   9. MAIN CONTENT
-   ============================================= */
+/* ==========================================================
+   11. MAIN CONTENT AREA
+   ========================================================== */
 .main-content {
   margin-left: var(--sidebar-w);
+  /* Prevent content overflow from ever causing horizontal scroll */
+  overflow-x: hidden;
   min-height: 100vh;
 }
 
-/* =============================================
-   10. SECTION LAYOUT
-   ============================================= */
+/* ==========================================================
+   12. SECTION LAYOUT
+   ========================================================== */
 .section {
+  /* Hidden by default — JS adds .active to show */
   display: none;
+  width: 100%;
   min-height: 100vh;
-  padding: 56px 48px 64px;
-  animation: sectionIn 0.3s ease forwards;
+  padding: 52px 48px 64px;
+  /* Animation defined on class, not inline — avoids JS reset bug */
+  animation: sectionIn 0.28s ease both;
 }
 
 .section.active { display: block; }
 
 @keyframes sectionIn {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.section-inner { max-width: 840px; }
+/* Section inner container */
+.section-inner {
+  width: 100%;
+  max-width: 840px;
+}
 
+/* Section header (title row) */
 .section-header {
   display: flex;
   align-items: baseline;
   gap: 14px;
-  margin-bottom: 36px;
-  padding-bottom: 18px;
+  margin-bottom: 34px;
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--border);
 }
 
 .section-num {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   color: var(--accent);
   opacity: 0.5;
   flex-shrink: 0;
@@ -387,22 +497,22 @@ code {
 
 .section-title {
   font-family: var(--font-head);
-  font-size: 1.65rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
-/* =============================================
-   11. HOME
-   ============================================= */
-.home-hero { padding-top: 16px; }
+/* ==========================================================
+   13. HOME SECTION
+   ========================================================== */
+.home-hero { padding-top: 12px; }
 
 .hero-label {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-3);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .hero-name {
@@ -423,73 +533,83 @@ code {
 
 .hero-tagline {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--accent);
   line-height: 1.5;
-  margin-bottom: 22px;
-  border-left: 2px solid var(--accent);
+  margin-bottom: 20px;
   padding-left: 14px;
+  border-left: 2px solid var(--accent);
 }
 
 .hero-desc {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   color: var(--text-2);
   line-height: 1.8;
-  max-width: 540px;
-  margin-bottom: 30px;
+  max-width: 520px;
+  margin-bottom: 28px;
 }
 
 .hero-actions {
   display: flex;
-  gap: 10px;
-  margin-bottom: 28px;
   flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
 }
 
-/* Buttons — consistent font, focus state, no hover lift */
+/* ── Buttons — shared base ─────────────────────────────────── */
+.btn-primary,
+.btn-ghost {
+  /* Inherit font explicitly (buttons don't by default) */
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  /* Minimum touch target */
+  min-height: 44px;
+  padding: 10px 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background var(--tx-base), color var(--tx-base), border-color var(--tx-base);
+}
+
 .btn-primary {
-  padding: 9px 22px;
   background: var(--accent);
   color: var(--bg);
   border: 2px solid var(--accent);
-  border-radius: 5px;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: background var(--tx-base), color var(--tx-base);
 }
-.btn-primary:hover { background: transparent; color: var(--accent); }
+.btn-primary:hover {
+  background: transparent;
+  color: var(--accent);
+}
 
 .btn-ghost {
-  padding: 9px 22px;
   background: transparent;
   color: var(--text-2);
   border: 2px solid var(--border-hi);
-  border-radius: 5px;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: color var(--tx-base), border-color var(--tx-base);
 }
-.btn-ghost:hover { color: var(--text); border-color: var(--text-2); }
+.btn-ghost:hover {
+  color: var(--text);
+  border-color: var(--text-2);
+}
 
-.tech-stack { display: flex; gap: 8px; flex-wrap: wrap; }
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
 .stack-tag {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   padding: 4px 10px;
-  background: var(--surface2);
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--text-2);
 }
 
-/* =============================================
-   12. ABOUT
-   ============================================= */
+/* ==========================================================
+   14. ABOUT SECTION
+   ========================================================== */
 .content-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -498,29 +618,37 @@ code {
 }
 
 .about-text {
-  font-size: 0.93rem;
+  font-size: 0.92rem;
   color: var(--text-2);
   line-height: 1.8;
   margin-bottom: 16px;
 }
 .about-text:last-child { margin-bottom: 0; }
 
-.about-values { display: flex; flex-direction: column; gap: 18px; }
+.about-values {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
-.value-item { display: flex; gap: 12px; align-items: flex-start; }
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
 
 .value-icon {
   color: var(--accent);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   flex-shrink: 0;
   margin-top: 3px;
 }
 
 .value-title {
-  font-size: 0.88rem;
+  font-size: 0.87rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 .value-desc {
@@ -529,13 +657,13 @@ code {
   line-height: 1.5;
 }
 
-/* =============================================
-   13. SKILLS
-   ============================================= */
+/* ==========================================================
+   15. SKILLS SECTION
+   ========================================================== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 18px;
 }
 
 .skill-category {
@@ -547,7 +675,7 @@ code {
 
 .skill-cat-title {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.79rem;
   color: var(--accent);
   margin-bottom: 14px;
   font-weight: 500;
@@ -564,7 +692,7 @@ code {
   display: flex;
   align-items: flex-start;
   gap: 9px;
-  font-size: 0.87rem;
+  font-size: 0.86rem;
   color: var(--text-2);
   line-height: 1.45;
 }
@@ -577,10 +705,14 @@ code {
   margin-top: 7px;
 }
 
-/* =============================================
-   14. PROJECTS
-   ============================================= */
-.projects-list { display: flex; flex-direction: column; gap: 20px; }
+/* ==========================================================
+   16. PROJECTS SECTION
+   ========================================================== */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 .project-card {
   background: var(--surface);
@@ -591,46 +723,50 @@ code {
 }
 .project-card:hover { border-color: var(--border-hi); }
 
+/* Project header: title left, status+link right */
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 12px;
-  flex-wrap: wrap;
 }
 
 .project-meta { flex: 1; min-width: 0; }
 
 .project-type {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--text-3);
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  display: block;
   margin-bottom: 4px;
 }
 
 .project-name {
   font-family: var(--font-head);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text);
+  /* Prevent overflow on narrow cards */
+  overflow-wrap: break-word;
 }
 
 .project-header-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-shrink: 0;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
+/* Status pill */
 .project-status {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  padding: 3px 10px;
+  font-size: 0.7rem;
+  padding: 3px 9px;
   border-radius: 20px;
   font-weight: 500;
   white-space: nowrap;
@@ -646,13 +782,13 @@ code {
   border: 1px solid var(--amber-bd);
 }
 
-/* GitHub repo link on project cards */
+/* GitHub repo link — secondary; not dominant */
 .project-gh-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-3);
   padding: 3px 10px;
   border: 1px solid var(--border);
@@ -666,15 +802,15 @@ code {
   background: var(--accent-lo);
 }
 .gh-icon {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
 }
 
 .project-desc {
   font-size: 0.88rem;
   color: var(--text-2);
-  margin-bottom: 14px;
   line-height: 1.65;
+  margin-bottom: 14px;
 }
 
 .project-features {
@@ -682,32 +818,35 @@ code {
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
 }
-
 .project-features li {
   font-size: 0.84rem;
   color: var(--text-3);
   padding-left: 16px;
   position: relative;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 .project-features li::before {
   content: '→';
   position: absolute;
   left: 0;
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
 }
 
-.project-tech { display: flex; gap: 7px; flex-wrap: wrap; }
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
 
-/* =============================================
-   15. TECH BADGES (shared)
-   ============================================= */
+/* ==========================================================
+   17. TECH BADGES (shared across projects + internship)
+   ========================================================== */
 .tech-badge {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   padding: 3px 9px;
   background: var(--accent-lo);
   border: 1px solid var(--accent-bd);
@@ -715,39 +854,46 @@ code {
   color: var(--accent);
 }
 
-/* =============================================
-   16. INTERNSHIP / EXPERIENCE
-   ============================================= */
-.experience-block { display: flex; flex-direction: column; gap: 20px; }
+/* ==========================================================
+   18. INTERNSHIP / EXPERIENCE
+   ========================================================== */
+.experience-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 .exp-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 24px;
+  padding: 22px;
 }
 
 .exp-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 16px;
   gap: 12px;
+  margin-bottom: 16px;
 }
 
 .exp-company {
   font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 0.97rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
-.exp-role { font-size: 0.85rem; color: var(--text-2); }
+.exp-role {
+  font-size: 0.84rem;
+  color: var(--text-2);
+}
 
 .exp-badge {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   padding: 3px 10px;
   border-radius: 20px;
   background: var(--accent-lo);
@@ -755,13 +901,18 @@ code {
   color: var(--accent);
   white-space: nowrap;
   flex-shrink: 0;
+  align-self: flex-start;
 }
 
-.exp-divider { height: 1px; background: var(--border); margin-bottom: 14px; }
+.exp-divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 14px;
+}
 
 .exp-label {
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   color: var(--text-3);
   margin-bottom: 10px;
 }
@@ -773,9 +924,8 @@ code {
   gap: 9px;
   margin-bottom: 16px;
 }
-
 .exp-points li {
-  font-size: 0.87rem;
+  font-size: 0.86rem;
   color: var(--text-2);
   padding-left: 16px;
   position: relative;
@@ -786,14 +936,15 @@ code {
   position: absolute;
   left: 0;
   color: var(--accent);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  top: 3px;
 }
 
-.exp-tech { display: flex; gap: 7px; flex-wrap: wrap; }
+.exp-tech { display: flex; flex-wrap: wrap; gap: 7px; }
 
-/* =============================================
-   17. CURRENTLY LEARNING
-   ============================================= */
+/* ==========================================================
+   19. CURRENTLY LEARNING
+   ========================================================== */
 .learning-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -810,38 +961,45 @@ code {
 .learning-card:hover { border-color: var(--border-hi); }
 
 .learning-icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--accent);
   margin-bottom: 10px;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 .learning-topic {
   font-family: var(--font-head);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 7px;
 }
 
 .learning-desc {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--text-2);
   line-height: 1.65;
 }
 
-/* =============================================
-   18. EDUCATION TIMELINE
-   ============================================= */
-.edu-timeline { display: flex; flex-direction: column; }
+/* ==========================================================
+   20. EDUCATION TIMELINE
+   ========================================================== */
+.edu-timeline {
+  display: flex;
+  flex-direction: column;
+}
 
-.edu-item { display: flex; gap: 20px; }
+.edu-item {
+  display: flex;
+  gap: 18px;
+}
 
 .edu-marker {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
+  padding-top: 2px;
 }
 
 .edu-dot {
@@ -855,8 +1013,8 @@ code {
 .edu-dot::after {
   content: '';
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  margin: auto;
   width: 5px; height: 5px;
   background: var(--accent);
   border-radius: 50%;
@@ -865,38 +1023,42 @@ code {
   width: 9px; height: 9px;
   border-color: var(--border-hi);
 }
-.edu-dot.small::after { background: var(--border-hi); width: 3px; height: 3px; }
+.edu-dot.small::after {
+  background: var(--border-hi);
+  width: 3px; height: 3px;
+}
 
 .edu-line {
   width: 1px;
   flex: 1;
   background: var(--border);
   margin: 4px 0;
-  min-height: 36px;
+  min-height: 32px;
 }
 
-.edu-content { padding-bottom: 32px; }
+.edu-content { padding-bottom: 30px; }
 
 .edu-level {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  display: block;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .edu-degree {
   font-family: var(--font-head);
-  font-size: 0.97rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 3px;
+  overflow-wrap: break-word;
 }
 
 .edu-institution {
-  font-size: 0.84rem;
+  font-size: 0.83rem;
   color: var(--text-2);
   margin-bottom: 10px;
 }
@@ -905,40 +1067,39 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--surface2);
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: 5px;
   padding: 5px 12px;
 }
-
 .stat-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--text-3);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-
 .stat-value {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 500;
   color: var(--accent);
 }
 
-/* =============================================
-   19. GOALS TERMINAL
-   ============================================= */
+/* ==========================================================
+   21. GOALS — TERMINAL BLOCK
+   ========================================================== */
 .goals-terminal {
   background: #040810;
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
   max-width: 680px;
+  width: 100%;
 }
 
 .terminal-bar {
-  background: var(--surface2);
+  background: var(--surface-2);
   border-bottom: 1px solid var(--border);
   padding: 9px 14px;
   display: flex;
@@ -949,6 +1110,7 @@ code {
 .t-dot {
   width: 11px; height: 11px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 .t-dot.red    { background: #ff5f57; }
 .t-dot.yellow { background: #ffbd2e; }
@@ -956,36 +1118,42 @@ code {
 
 .t-title {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   color: var(--text-3);
   margin-left: 6px;
 }
 
-.terminal-body { padding: 22px 26px; overflow-x: auto; }
+.terminal-body {
+  padding: 20px 24px;
+  overflow-x: auto;        /* horizontal scroll inside terminal only */
+  -webkit-overflow-scrolling: touch;
+}
 
+/* KEY FIX: white-space: pre causes horizontal overflow on mobile.
+   Use pre-wrap — preserves formatting but wraps long lines. */
 .t-line {
   font-family: var(--font-mono);
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   line-height: 1.85;
-  white-space: pre;
+  white-space: pre-wrap;   /* was: pre — caused overflow on narrow screens */
+  word-break: break-word;
 }
-.t-indent { padding-left: 22px; }
-.t-blank  { height: 0.4rem; }
+.t-indent { padding-left: 20px; }
 
-/* Syntax highlighting */
+/* Syntax colours */
 .t-kw      { color: #c792ea; }
 .t-op      { color: #89ddff; }
 .t-str     { color: #c3e88d; }
 .t-fn      { color: #82aaff; }
-.t-comment { color: #4a5568; font-style: italic; }
+.t-comment { color: #4a5a72; font-style: italic; }
 
-/* =============================================
-   20. CONTACT
-   ============================================= */
+/* ==========================================================
+   22. CONTACT SECTION
+   ========================================================== */
 .contact-intro {
-  font-size: 0.93rem;
+  font-size: 0.92rem;
   color: var(--text-2);
-  margin-bottom: 26px;
+  margin-bottom: 24px;
   line-height: 1.7;
 }
 
@@ -1002,8 +1170,10 @@ code {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 14px 18px;
+  padding: 14px 16px;
   transition: border-color var(--tx-base), background var(--tx-base);
+  /* Minimum touch height */
+  min-height: 64px;
 }
 .contact-card:hover {
   border-color: var(--accent-bd);
@@ -1015,11 +1185,11 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--surface2);
+  background: var(--surface-2);
   border: 1px solid var(--border-hi);
   border-radius: 6px;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--accent);
   flex-shrink: 0;
@@ -1027,77 +1197,159 @@ code {
 }
 .contact-card:hover .contact-icon { border-color: var(--accent-bd); }
 
-.contact-type  { font-size: 0.72rem; color: var(--text-3); margin-bottom: 2px; }
-.contact-value { font-size: 0.84rem; color: var(--text); font-weight: 500; }
+.contact-info { min-width: 0; }
+.contact-type  { font-size: 0.7rem; color: var(--text-3); margin-bottom: 2px; }
+.contact-value {
+  font-size: 0.82rem;
+  color: var(--text);
+  font-weight: 500;
+  /* Prevent long email from breaking layout */
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
 
-/* =============================================
-   21. SCROLLBAR (Webkit)
-   ============================================= */
+/* ==========================================================
+   23. SCROLLBAR
+   ========================================================== */
 ::-webkit-scrollbar        { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track  { background: var(--bg); }
 ::-webkit-scrollbar-thumb  { background: var(--border-hi); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
 
-/* =============================================
-   22. PRINT
-   ============================================= */
+/* ==========================================================
+   24. PRINT
+   ========================================================== */
 @media print {
-  .sidebar, .mobile-header, .mobile-nav, .mobile-nav-overlay { display: none !important; }
-  .main-content { margin-left: 0 !important; }
-  .section      { display: block !important; page-break-after: always; padding: 30px 40px; min-height: auto; }
-  body          { background: white; color: #111; }
+  .sidebar,
+  .mobile-header,
+  .mobile-nav,
+  .mobile-nav-overlay { display: none !important; }
+
+  .main-content {
+    margin-left: 0 !important;
+    overflow-x: visible;
+  }
+
+  .section {
+    display: block !important;
+    page-break-after: always;
+    padding: 28px 36px;
+    min-height: auto;
+    animation: none !important;
+  }
+
+  body { background: #fff; color: #111; }
   .hero-name, .section-title { color: #111; }
-  .about-text, .project-desc, .exp-points li, .skill-list li,
-  .learning-desc, .contact-value { color: #333; }
-  .tech-badge, .project-status, .exp-badge { border: 1px solid #aaa; color: #333; background: none; }
-  .goals-terminal { border: 1px solid #ccc; }
+  .about-text, .project-desc, .exp-points li,
+  .skill-list li, .learning-desc { color: #333; }
+  .tech-badge, .project-status, .exp-badge {
+    border: 1px solid #aaa;
+    color: #444;
+    background: none;
+  }
+  .goals-terminal { border: 1px solid #ccc; background: #fafafa; }
+  .t-str { color: #2d6a4f; }
+  .t-kw  { color: #6a0572; }
 }
 
-/* =============================================
-   23. RESPONSIVE — TABLET
-   ============================================= */
+/* ==========================================================
+   25. RESPONSIVE — TABLET (700–920px)
+   ========================================================== */
 @media (max-width: 920px) {
   :root { --sidebar-w: 220px; }
 
-  .section       { padding: 44px 32px 52px; }
+  .section { padding: 42px 32px 56px; }
+
+  .section-title { font-size: 1.5rem; }
+
   .content-grid  { grid-template-columns: 1fr; gap: 28px; }
   .skills-grid   { grid-template-columns: 1fr; }
-  .learning-grid { grid-template-columns: 1fr; }
+  .learning-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid  { grid-template-columns: 1fr; }
 }
 
-/* =============================================
-   24. RESPONSIVE — MOBILE
-   ============================================= */
+/* ==========================================================
+   26. RESPONSIVE — MOBILE (≤700px)
+   ========================================================== */
 @media (max-width: 700px) {
-  /* Hide sidebar; show mobile header */
-  .sidebar       { display: none; }
-  .mobile-header { display: flex; }
-  .mobile-nav-overlay { display: block; }
+  /* ── Show mobile chrome, hide sidebar ─────────────────── */
+  .sidebar        { display: none; }
+  .mobile-header  { display: flex; }
 
-  .main-content { margin-left: 0; padding-top: var(--header-h); }
+  /* ── Main content: offset by fixed header height ─────── */
+  .main-content   {
+    margin-left: 0;
+    padding-top: var(--header-h);
+  }
 
-  .section { padding: 32px 20px 48px; min-height: calc(100vh - var(--header-h)); }
+  /* ── Sections ─────────────────────────────────────────── */
+  .section {
+    padding: 28px 18px 48px;
+    /* Don't add header-h here — it's already in padding-top
+       on .main-content. Just fill remaining viewport. */
+    min-height: calc(100vh - var(--header-h));
+  }
 
+  /* ── Typography ───────────────────────────────────────── */
   .hero-name     { font-size: clamp(2.6rem, 11vw, 3.8rem); }
-  .section-title { font-size: 1.45rem; }
+  .section-title { font-size: 1.35rem; }
+  .hero-desc     { font-size: 0.9rem; }
 
-  .project-header       { flex-direction: column; gap: 10px; }
-  .project-header-right { align-self: flex-start; }
-  .exp-header           { flex-direction: column; gap: 8px; }
-
-  .content-grid  { grid-template-columns: 1fr; }
+  /* ── Grids: all single column ─────────────────────────── */
+  .content-grid  { grid-template-columns: 1fr; gap: 24px; }
   .skills-grid   { grid-template-columns: 1fr; }
   .learning-grid { grid-template-columns: 1fr; }
   .contact-grid  { grid-template-columns: 1fr; }
 
-  .terminal-body { padding: 16px 18px; overflow-x: auto; }
-  .t-line        { font-size: 0.75rem; }
-  .t-indent      { padding-left: 16px; }
+  /* ── Project cards: stack title + controls vertically ──── */
+  .project-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .project-header-right {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  /* ── Internship card: stack header vertically ─────────── */
+  .exp-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* ── Terminal: ensure it wraps within card ────────────── */
+  .goals-terminal { max-width: 100%; }
+  .terminal-body  { padding: 16px; }
+  .t-line         { font-size: 0.76rem; }
+  .t-indent       { padding-left: 14px; }
+
+  /* ── Buttons: allow row layout unless too narrow ────────── */
+  .hero-actions { gap: 10px; }
 }
 
-@media (max-width: 380px) {
-  .hero-actions { flex-direction: column; }
-  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
-  .section { padding: 28px 16px 40px; }
+/* ==========================================================
+   27. RESPONSIVE — SMALL MOBILE (≤390px)
+   ========================================================== */
+@media (max-width: 390px) {
+  .section { padding: 24px 14px 40px; }
+
+  /* Stack buttons vertically on very small screens */
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Tighten contact cards on tiny screens */
+  .contact-card { padding: 12px; gap: 10px; }
+  .contact-icon { width: 30px; height: 30px; font-size: 0.58rem; }
+
+  .hero-name { font-size: clamp(2.3rem, 10vw, 3rem); }
 }
