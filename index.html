@@ -10,36 +10,53 @@
 </head>
 <body>
 
-<!-- ==============================
+<!-- ============================================================
      MOBILE HEADER
-     ============================== -->
-<div class="mobile-header">
+     ============================================================ -->
+<header class="mobile-header" role="banner">
   <div class="mobile-brand">
     <span class="prompt">~/</span><span class="name-mono">srinath_yadav</span>
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
+  <button
+    class="hamburger"
+    id="hamburger"
+    onclick="toggleMobileMenu()"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+    aria-controls="mobileNav"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
-</div>
+</header>
 
-<div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+<!-- Overlay — blocks background interaction when menu is open -->
+<div
+  class="mobile-nav-overlay"
+  id="mobileOverlay"
+  onclick="closeMobileMenu()"
+  aria-hidden="true"
+></div>
+
+<!-- Mobile slide-in nav -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-  <ul>
-    <li><a href="#home"       onclick="navTo('home')">      <span class="nav-num">01</span> Home</a></li>
-    <li><a href="#about"      onclick="navTo('about')">     <span class="nav-num">02</span> About</a></li>
-    <li><a href="#skills"     onclick="navTo('skills')">    <span class="nav-num">03</span> Skills</a></li>
-    <li><a href="#projects"   onclick="navTo('projects')">  <span class="nav-num">04</span> Projects</a></li>
-    <li><a href="#internship" onclick="navTo('internship')"><span class="nav-num">05</span> Internship</a></li>
-    <li><a href="#learning"   onclick="navTo('learning')">  <span class="nav-num">06</span> Learning</a></li>
-    <li><a href="#education"  onclick="navTo('education')"> <span class="nav-num">07</span> Education</a></li>
-    <li><a href="#goals"      onclick="navTo('goals')">     <span class="nav-num">08</span> Goals</a></li>
-    <li><a href="#contact"    onclick="navTo('contact')">   <span class="nav-num">09</span> Contact</a></li>
+  <ul role="list">
+    <li><a href="#" class="mob-nav-link" data-section="home"       onclick="navTo('home')">      <span class="nav-num" aria-hidden="true">01</span>Home</a></li>
+    <li><a href="#" class="mob-nav-link" data-section="about"      onclick="navTo('about')">     <span class="nav-num" aria-hidden="true">02</span>About</a></li>
+    <li><a href="#" class="mob-nav-link" data-section="skills"     onclick="navTo('skills')">    <span class="nav-num" aria-hidden="true">03</span>Skills</a></li>
+    <li><a href="#" class="mob-nav-link" data-section="projects"   onclick="navTo('projects')">  <span class="nav-num" aria-hidden="true">04</span>Projects</a></li>
+    <li><a href="#" class="mob-nav-link" data-section="internship" onclick="navTo('internship')"><span class="nav-num" aria-hidden="true">05</span>Internship</a></li>
+    <li><a href="#" class="mob-nav-link" data-section="learning"   onclick="navTo('learning')">  <span class="nav-num" aria-hidden="true">06</span>Learning</a></li>
+    <li><a href="#" class="mob-nav-link" data-section="education"  onclick="navTo('education')"> <span class="nav-num" aria-hidden="true">07</span>Education</a></li>
+    <li><a href="#" class="mob-nav-link" data-section="goals"      onclick="navTo('goals')">     <span class="nav-num" aria-hidden="true">08</span>Goals</a></li>
+    <li><a href="#" class="mob-nav-link" data-section="contact"    onclick="navTo('contact')">   <span class="nav-num" aria-hidden="true">09</span>Contact</a></li>
   </ul>
 </nav>
 
-<!-- ==============================
-     SIDEBAR
-     ============================== -->
+<!-- ============================================================
+     SIDEBAR (desktop)
+     ============================================================ -->
 <aside class="sidebar" aria-label="Sidebar navigation">
   <div class="sidebar-top">
     <div class="avatar-wrap">
@@ -47,44 +64,44 @@
       <div class="status-dot" title="Open to opportunities"></div>
     </div>
     <div class="sidebar-identity">
-      <h2 class="sidebar-name">Srinath Yadav</h2>
-      <p class="sidebar-role"><span class="prompt-char">&gt;</span> Aspiring Backend Dev</p>
+      <p class="sidebar-name">Srinath Yadav</p>
+      <p class="sidebar-role"><span class="prompt-char" aria-hidden="true">&gt;</span> Aspiring Backend Dev</p>
       <p class="sidebar-edu">BCA Student · Python</p>
     </div>
   </div>
 
   <nav class="sidebar-nav" aria-label="Section navigation">
-    <a class="nav-link active" onclick="showSection('home')"       data-section="home">      <span class="nav-num">01</span><span class="nav-label">Home</span></a>
-    <a class="nav-link"       onclick="showSection('about')"      data-section="about">     <span class="nav-num">02</span><span class="nav-label">About</span></a>
-    <a class="nav-link"       onclick="showSection('skills')"     data-section="skills">    <span class="nav-num">03</span><span class="nav-label">Skills</span></a>
-    <a class="nav-link"       onclick="showSection('projects')"   data-section="projects">  <span class="nav-num">04</span><span class="nav-label">Projects</span></a>
-    <a class="nav-link"       onclick="showSection('internship')" data-section="internship"><span class="nav-num">05</span><span class="nav-label">Internship</span></a>
-    <a class="nav-link"       onclick="showSection('learning')"   data-section="learning">  <span class="nav-num">06</span><span class="nav-label">Learning</span></a>
-    <a class="nav-link"       onclick="showSection('education')"  data-section="education"> <span class="nav-num">07</span><span class="nav-label">Education</span></a>
-    <a class="nav-link"       onclick="showSection('goals')"      data-section="goals">     <span class="nav-num">08</span><span class="nav-label">Goals</span></a>
-    <a class="nav-link"       onclick="showSection('contact')"    data-section="contact">   <span class="nav-num">09</span><span class="nav-label">Contact</span></a>
+    <a class="nav-link active" onclick="showSection('home')"       data-section="home">      <span class="nav-num" aria-hidden="true">01</span><span class="nav-label">Home</span></a>
+    <a class="nav-link"       onclick="showSection('about')"      data-section="about">     <span class="nav-num" aria-hidden="true">02</span><span class="nav-label">About</span></a>
+    <a class="nav-link"       onclick="showSection('skills')"     data-section="skills">    <span class="nav-num" aria-hidden="true">03</span><span class="nav-label">Skills</span></a>
+    <a class="nav-link"       onclick="showSection('projects')"   data-section="projects">  <span class="nav-num" aria-hidden="true">04</span><span class="nav-label">Projects</span></a>
+    <a class="nav-link"       onclick="showSection('internship')" data-section="internship"><span class="nav-num" aria-hidden="true">05</span><span class="nav-label">Internship</span></a>
+    <a class="nav-link"       onclick="showSection('learning')"   data-section="learning">  <span class="nav-num" aria-hidden="true">06</span><span class="nav-label">Learning</span></a>
+    <a class="nav-link"       onclick="showSection('education')"  data-section="education"> <span class="nav-num" aria-hidden="true">07</span><span class="nav-label">Education</span></a>
+    <a class="nav-link"       onclick="showSection('goals')"      data-section="goals">     <span class="nav-num" aria-hidden="true">08</span><span class="nav-label">Goals</span></a>
+    <a class="nav-link"       onclick="showSection('contact')"    data-section="contact">   <span class="nav-num" aria-hidden="true">09</span><span class="nav-label">Contact</span></a>
   </nav>
 
   <div class="sidebar-bottom">
     <div class="sidebar-links">
-      <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">GH</a>
-      <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">LI</a>
+      <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile">GH</a>
+      <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile">LI</a>
     </div>
     <p class="sidebar-copy">&copy; 2026 Srinath Yadav</p>
   </div>
 </aside>
 
-<!-- ==============================
+<!-- ============================================================
      MAIN CONTENT
-     ============================== -->
-<main class="main-content">
+     ============================================================ -->
+<main class="main-content" id="mainContent">
 
-  <!-- 01 · HOME -->
+  <!-- ── 01 · HOME ─────────────────────────────────────────── -->
   <section id="home" class="section active" aria-label="Introduction">
     <div class="section-inner">
       <div class="home-hero">
-        <div class="hero-label"><span class="prompt-char">$</span> cat profile.txt</div>
-        <h1 class="hero-name">Srinath<br>Yadav<span class="cursor-blink">_</span></h1>
+        <p class="hero-label"><span class="prompt-char" aria-hidden="true">$</span> cat profile.txt</p>
+        <h1 class="hero-name">Srinath<br>Yadav<span class="cursor-blink" aria-hidden="true">_</span></h1>
         <p class="hero-tagline">Aspiring Backend Developer · Python &amp; Structured Systems</p>
         <p class="hero-desc">
           BCA student building a strong foundation in backend fundamentals — structured Python, modular CLI applications, and clean system design. I learn through execution: design, build, refactor, repeat.
@@ -93,7 +110,7 @@
           <button class="btn-primary" onclick="showSection('projects')">View Projects</button>
           <button class="btn-ghost"   onclick="downloadResume()">Download Resume</button>
         </div>
-        <div class="tech-stack">
+        <div class="tech-stack" aria-label="Core technologies">
           <span class="stack-tag">Python</span>
           <span class="stack-tag">HTML / CSS</span>
           <span class="stack-tag">Git</span>
@@ -104,11 +121,11 @@
     </div>
   </section>
 
-  <!-- 02 · ABOUT -->
+  <!-- ── 02 · ABOUT ────────────────────────────────────────── -->
   <section id="about" class="section" aria-label="About">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-num">02</span>
+        <span class="section-num" aria-hidden="true">02</span>
         <h2 class="section-title">About</h2>
       </div>
       <div class="content-grid">
@@ -123,7 +140,7 @@
             Currently strengthening core fundamentals before expanding into full backend frameworks. The goal is a solid base in data flow, system architecture, and database integration — built to last, not just to work.
           </p>
         </div>
-        <div class="about-values">
+        <div class="about-values" aria-label="Working principles">
           <div class="value-item">
             <span class="value-icon" aria-hidden="true">◈</span>
             <div>
@@ -157,11 +174,11 @@
     </div>
   </section>
 
-  <!-- 03 · SKILLS -->
+  <!-- ── 03 · SKILLS ───────────────────────────────────────── -->
   <section id="skills" class="section" aria-label="Skills">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-num">03</span>
+        <span class="section-num" aria-hidden="true">03</span>
         <h2 class="section-title">Skills</h2>
       </div>
       <div class="skills-grid">
@@ -211,29 +228,39 @@
     </div>
   </section>
 
-  <!-- 04 · PROJECTS -->
+  <!-- ── 04 · PROJECTS ─────────────────────────────────────── -->
   <section id="projects" class="section" aria-label="Projects">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-num">04</span>
+        <span class="section-num" aria-hidden="true">04</span>
         <h2 class="section-title">Projects</h2>
       </div>
       <div class="projects-list">
 
-        <div class="project-card">
+        <!-- Project 1 -->
+        <article class="project-card">
           <div class="project-header">
             <div class="project-meta">
               <span class="project-type">CLI Application</span>
               <h3 class="project-name">Student Management System</h3>
             </div>
             <div class="project-header-right">
-              <div class="project-status done">Completed</div>
-              <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="project-gh-link" aria-label="View on GitHub">
-                <span class="gh-icon" aria-hidden="true">GH</span> View Repo
+              <span class="project-status done">Completed</span>
+              <!-- Update href to your actual repo URL -->
+              <a
+                href="https://github.com/srinathyadav46/student-management-system"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-gh-link"
+                aria-label="View Student Management System on GitHub"
+              >
+                <span class="gh-icon" aria-hidden="true">GH</span>View Repo
               </a>
             </div>
           </div>
-          <p class="project-desc">A Python CLI application for managing student records with full data persistence, analytics, and modular architecture.</p>
+          <p class="project-desc">
+            A Python CLI application for managing student records with full data persistence, analytics, and modular architecture.
+          </p>
           <ul class="project-features">
             <li>Full CRUD operations — create, read, update, delete student records</li>
             <li>JSON-based persistent data storage across sessions</li>
@@ -241,77 +268,97 @@
             <li>Calculates class average and identifies top scorer</li>
             <li>Refactored from monolithic script to modular function-based architecture</li>
           </ul>
-          <div class="project-tech">
+          <div class="project-tech" aria-label="Technologies used">
             <span class="tech-badge">Python</span>
             <span class="tech-badge">JSON</span>
             <span class="tech-badge">File I/O</span>
             <span class="tech-badge">Modular Design</span>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <!-- Project 2 -->
+        <article class="project-card">
           <div class="project-header">
             <div class="project-meta">
               <span class="project-type">CLI Application</span>
               <h3 class="project-name">Smart Expense Tracker</h3>
             </div>
             <div class="project-header-right">
-              <div class="project-status wip">In Progress</div>
-              <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="project-gh-link" aria-label="View on GitHub">
-                <span class="gh-icon" aria-hidden="true">GH</span> View Repo
+              <span class="project-status wip">In Progress</span>
+              <!-- Update href to your actual repo URL -->
+              <a
+                href="https://github.com/srinathyadav46/smart-expense-tracker"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-gh-link"
+                aria-label="View Smart Expense Tracker on GitHub"
+              >
+                <span class="gh-icon" aria-hidden="true">GH</span>View Repo
               </a>
             </div>
           </div>
-          <p class="project-desc">A categorized expense tracking tool designed with scalability in mind — structured to support a database backend as the next iteration.</p>
+          <p class="project-desc">
+            A categorized expense tracking tool designed with scalability in mind — structured to support a database backend as the next iteration.
+          </p>
           <ul class="project-features">
             <li>Tracks daily expenses with date, category, and amount</li>
             <li>Categorized spending summaries per time period</li>
             <li>Modular structure — separate layers for input, logic, and storage</li>
             <li>Planned migration from JSON to SQLite for relational persistence</li>
           </ul>
-          <div class="project-tech">
+          <div class="project-tech" aria-label="Technologies used">
             <span class="tech-badge">Python</span>
             <span class="tech-badge">Modular Design</span>
             <span class="tech-badge">SQLite (Planned)</span>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
+        <!-- Project 3 -->
+        <article class="project-card">
           <div class="project-header">
             <div class="project-meta">
               <span class="project-type">Web Application</span>
               <h3 class="project-name">Personal Resume Website</h3>
             </div>
             <div class="project-header-right">
-              <div class="project-status done">Completed</div>
-              <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="project-gh-link" aria-label="View on GitHub">
-                <span class="gh-icon" aria-hidden="true">GH</span> View Repo
+              <span class="project-status done">Completed</span>
+              <!-- Update href to your actual repo URL -->
+              <a
+                href="https://github.com/srinathyadav46/resume-website"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-gh-link"
+                aria-label="View Resume Website on GitHub"
+              >
+                <span class="gh-icon" aria-hidden="true">GH</span>View Repo
               </a>
             </div>
           </div>
-          <p class="project-desc">A responsive, mobile-first resume website built without frameworks — pure HTML, CSS, and JavaScript.</p>
+          <p class="project-desc">
+            A responsive, mobile-first resume website built without frameworks — pure HTML, CSS, and JavaScript.
+          </p>
           <ul class="project-features">
             <li>Mobile-first responsive design with structured breakpoints</li>
             <li>Interactive navigation with smooth section transitions</li>
             <li>Semantically structured content sections for clarity</li>
             <li>Zero dependencies — no frameworks or build tools</li>
           </ul>
-          <div class="project-tech">
+          <div class="project-tech" aria-label="Technologies used">
             <span class="tech-badge">HTML</span>
             <span class="tech-badge">CSS</span>
             <span class="tech-badge">JavaScript</span>
           </div>
-        </div>
+        </article>
 
       </div>
     </div>
   </section>
 
-  <!-- 05 · INTERNSHIP -->
+  <!-- ── 05 · INTERNSHIP ───────────────────────────────────── -->
   <section id="internship" class="section" aria-label="Internship">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-num">05</span>
+        <span class="section-num" aria-hidden="true">05</span>
         <h2 class="section-title">Internship</h2>
       </div>
       <div class="experience-block">
@@ -329,7 +376,7 @@
           <ul class="exp-points">
             <li>Exposure to supervised and unsupervised machine learning concepts</li>
             <li>Worked with real-world datasets — data cleaning and preprocessing pipelines</li>
-            <li>Applied Python to ML workflows: feature handling, model evaluation basics</li>
+            <li>Applied Python to ML workflows: feature handling and model evaluation basics</li>
             <li>Strengthened core Python skills in a structured, applied context</li>
             <li>Understood the end-to-end flow of a basic ML pipeline</li>
           </ul>
@@ -359,11 +406,11 @@
     </div>
   </section>
 
-  <!-- 06 · CURRENTLY LEARNING -->
+  <!-- ── 06 · CURRENTLY LEARNING ───────────────────────────── -->
   <section id="learning" class="section" aria-label="Currently Learning">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-num">06</span>
+        <span class="section-num" aria-hidden="true">06</span>
         <h2 class="section-title">Currently Learning</h2>
       </div>
       <div class="learning-grid">
@@ -396,17 +443,17 @@
     </div>
   </section>
 
-  <!-- 07 · EDUCATION -->
+  <!-- ── 07 · EDUCATION ────────────────────────────────────── -->
   <section id="education" class="section" aria-label="Education">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-num">07</span>
+        <span class="section-num" aria-hidden="true">07</span>
         <h2 class="section-title">Education</h2>
       </div>
       <div class="edu-timeline">
 
         <div class="edu-item">
-          <div class="edu-marker">
+          <div class="edu-marker" aria-hidden="true">
             <div class="edu-dot"></div>
             <div class="edu-line"></div>
           </div>
@@ -422,7 +469,7 @@
         </div>
 
         <div class="edu-item">
-          <div class="edu-marker">
+          <div class="edu-marker" aria-hidden="true">
             <div class="edu-dot small"></div>
             <div class="edu-line"></div>
           </div>
@@ -438,7 +485,7 @@
         </div>
 
         <div class="edu-item">
-          <div class="edu-marker">
+          <div class="edu-marker" aria-hidden="true">
             <div class="edu-dot small"></div>
           </div>
           <div class="edu-content">
@@ -456,40 +503,48 @@
     </div>
   </section>
 
-  <!-- 08 · FUTURE GOALS -->
+  <!-- ── 08 · FUTURE GOALS ─────────────────────────────────── -->
   <section id="goals" class="section" aria-label="Future Goals">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-num">08</span>
+        <span class="section-num" aria-hidden="true">08</span>
         <h2 class="section-title">Future Goals</h2>
       </div>
-      <div class="goals-terminal" role="img" aria-label="Goals written as Python code">
-        <div class="terminal-bar">
-          <span class="t-dot red"    aria-hidden="true"></span>
-          <span class="t-dot yellow" aria-hidden="true"></span>
-          <span class="t-dot green"  aria-hidden="true"></span>
+      <div class="goals-terminal">
+        <div class="terminal-bar" aria-hidden="true">
+          <span class="t-dot red"></span>
+          <span class="t-dot yellow"></span>
+          <span class="t-dot green"></span>
           <span class="t-title">goals.py</span>
         </div>
-        <div class="terminal-body">
-          <p class="t-line"><span class="t-kw">goals</span> <span class="t-op">=</span> [</p>
+        <!-- Accessible text version (hidden visually, read by screen readers) -->
+        <ul class="sr-only">
+          <li>Strengthen backend development with Python web frameworks and REST APIs</li>
+          <li>Learn database design and query optimization — PostgreSQL, SQLite</li>
+          <li>Contribute to open-source or production-level software projects</li>
+          <li>Secure a junior backend or Python developer role post-graduation</li>
+        </ul>
+        <!-- Visual terminal (hidden from screen readers) -->
+        <div class="terminal-body" aria-hidden="true">
+          <p class="t-line"><span class="t-kw">goals</span><span class="t-op"> = </span>[</p>
           <p class="t-line t-indent"><span class="t-str">"Strengthen backend development with Python web frameworks and REST APIs"</span><span class="t-op">,</span></p>
           <p class="t-line t-indent"><span class="t-str">"Learn database design and query optimization — PostgreSQL, SQLite"</span><span class="t-op">,</span></p>
           <p class="t-line t-indent"><span class="t-str">"Contribute to open-source or production-level software projects"</span><span class="t-op">,</span></p>
           <p class="t-line t-indent"><span class="t-str">"Secure a junior backend or Python developer role post-graduation"</span></p>
           <p class="t-line">]</p>
-          <p class="t-line t-blank"></p>
-          <p class="t-line"><span class="t-kw">for</span> goal <span class="t-kw">in</span> goals<span class="t-op">:</span></p>
-          <p class="t-line t-indent"><span class="t-fn">execute</span>(goal)  <span class="t-comment"># one step at a time</span></p>
+          <p class="t-line">&nbsp;</p>
+          <p class="t-line"><span class="t-kw">for</span><span class="t-op"> goal </span><span class="t-kw">in</span><span class="t-op"> goals:</span></p>
+          <p class="t-line t-indent"><span class="t-fn">execute</span><span class="t-op">(goal)  </span><span class="t-comment"># one step at a time</span></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 09 · CONTACT -->
+  <!-- ── 09 · CONTACT ──────────────────────────────────────── -->
   <section id="contact" class="section" aria-label="Contact">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-num">09</span>
+        <span class="section-num" aria-hidden="true">09</span>
         <h2 class="section-title">Contact</h2>
       </div>
       <p class="contact-intro">Open to internship opportunities, collaborative projects, and professional conversations.</p>
@@ -497,47 +552,47 @@
 
         <a href="mailto:srinathsrinsth195@gmail.com" class="contact-card">
           <span class="contact-icon" aria-hidden="true">@</span>
-          <div>
+          <div class="contact-info">
             <p class="contact-type">Email</p>
             <p class="contact-value">srinathsrinsth195@gmail.com</p>
           </div>
         </a>
 
-        <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener" class="contact-card">
+        <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener noreferrer" class="contact-card">
           <span class="contact-icon" aria-hidden="true">GH</span>
-          <div>
+          <div class="contact-info">
             <p class="contact-type">GitHub</p>
             <p class="contact-value">srinathyadav46</p>
           </div>
         </a>
 
-        <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank" rel="noopener" class="contact-card">
+        <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank" rel="noopener noreferrer" class="contact-card">
           <span class="contact-icon" aria-hidden="true">LI</span>
-          <div>
+          <div class="contact-info">
             <p class="contact-type">LinkedIn</p>
             <p class="contact-value">Srinath (Yadav) C</p>
           </div>
         </a>
 
-        <a href="https://www.hackerrank.com/srinathsrinsth11" target="_blank" rel="noopener" class="contact-card">
+        <a href="https://www.hackerrank.com/srinathsrinsth11" target="_blank" rel="noopener noreferrer" class="contact-card">
           <span class="contact-icon" aria-hidden="true">HR</span>
-          <div>
+          <div class="contact-info">
             <p class="contact-type">HackerRank</p>
             <p class="contact-value">@srinathsrinsth11</p>
           </div>
         </a>
 
-        <a href="https://leetcode.com/SRINATHYADAV46" target="_blank" rel="noopener" class="contact-card">
+        <a href="https://leetcode.com/SRINATHYADAV46" target="_blank" rel="noopener noreferrer" class="contact-card">
           <span class="contact-icon" aria-hidden="true">LC</span>
-          <div>
+          <div class="contact-info">
             <p class="contact-type">LeetCode</p>
             <p class="contact-value">SRINATHYADAV46</p>
           </div>
         </a>
 
-        <a href="https://www.kaggle.com/srinathyadav46" target="_blank" rel="noopener" class="contact-card">
+        <a href="https://www.kaggle.com/srinathyadav46" target="_blank" rel="noopener noreferrer" class="contact-card">
           <span class="contact-icon" aria-hidden="true">KG</span>
-          <div>
+          <div class="contact-info">
             <p class="contact-type">Kaggle</p>
             <p class="contact-value">srinathyadav46</p>
           </div>
@@ -549,49 +604,101 @@
 
 </main>
 
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
 <script>
+/* ── State ─────────────────────────────────────────────────── */
+var currentSection = 'home';
+
+/* ── Section switching ─────────────────────────────────────── */
 function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  const target = document.getElementById(id);
+  if (id === currentSection) return;   /* no-op if already active */
+  currentSection = id;
+
+  /* Hide all sections */
+  var sections = document.querySelectorAll('.section');
+  sections.forEach(function(s) {
+    s.classList.remove('active');
+  });
+
+  /* Deactivate all nav links (both sidebar and mobile) */
+  document.querySelectorAll('.nav-link, .mob-nav-link').forEach(function(l) {
+    l.classList.remove('active');
+  });
+
+  /* Show target section — let CSS animation play via class toggle */
+  var target = document.getElementById(id);
   if (target) {
-    target.style.animation = 'none';
-    target.offsetHeight;
-    target.style.animation = '';
+    /* Restart animation by briefly removing then re-adding the active class */
+    void target.offsetWidth;          /* force reflow without touching style */
     target.classList.add('active');
   }
-  const navLink = document.querySelector('[data-section="' + id + '"]');
-  if (navLink) navLink.classList.add('active');
+
+  /* Activate matching nav links (sidebar + mobile both use data-section) */
+  document.querySelectorAll('[data-section="' + id + '"]').forEach(function(el) {
+    el.classList.add('active');
+  });
 }
 
+/* ── Mobile nav ────────────────────────────────────────────── */
 function navTo(id) {
-  showSection(id);
   closeMobileMenu();
+  /* Small delay so menu slides away before section change renders */
+  setTimeout(function() { showSection(id); }, 60);
+  return false;   /* prevent href="#" from changing scroll position */
 }
 
 function toggleMobileMenu() {
-  const nav     = document.getElementById('mobileNav');
-  const overlay = document.getElementById('mobileOverlay');
-  const ham     = document.getElementById('hamburger');
-  const isOpen  = nav.classList.contains('open');
-  nav.classList.toggle('open');
-  overlay.classList.toggle('open');
-  ham.classList.toggle('open');
-  ham.setAttribute('aria-expanded', String(!isOpen));
+  var isOpen = document.getElementById('mobileNav').classList.contains('open');
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+function openMobileMenu() {
+  var nav     = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileOverlay');
+  var ham     = document.getElementById('hamburger');
+
+  nav.classList.add('open');
+  overlay.classList.add('open');
+  ham.classList.add('open');
+  ham.setAttribute('aria-expanded', 'true');
+
+  /* Trap focus inside nav while open */
+  nav.querySelector('a').focus();
 }
 
 function closeMobileMenu() {
-  document.getElementById('mobileNav').classList.remove('open');
-  document.getElementById('mobileOverlay').classList.remove('open');
-  const ham = document.getElementById('hamburger');
+  var nav     = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileOverlay');
+  var ham     = document.getElementById('hamburger');
+
+  nav.classList.remove('open');
+  overlay.classList.remove('open');
   ham.classList.remove('open');
   ham.setAttribute('aria-expanded', 'false');
 }
 
-function downloadResume() { window.print(); }
-
-document.addEventListener('keydown', (e) => {
+/* ── Keyboard accessibility ────────────────────────────────── */
+document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeMobileMenu();
+});
+
+/* ── Print / download ──────────────────────────────────────── */
+function downloadResume() {
+  window.print();
+}
+
+/* ── Init: sync active state with currentSection on load ───── */
+document.addEventListener('DOMContentLoaded', function() {
+  /* Ensure nav reflects the default active section */
+  document.querySelectorAll('[data-section="' + currentSection + '"]').forEach(function(el) {
+    el.classList.add('active');
+  });
 });
 </script>
 
