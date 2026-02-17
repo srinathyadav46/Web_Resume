@@ -1,577 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Srinath Yadav — Aspiring backend developer focused on Python, modular systems, and structured CLI applications." />
-  <title>Srinath Yadav — Backend Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Fira+Code:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srinath Yadav — Aspiring Backend Developer</title>
+  <meta name="description" content="Srinath Yadav — BCA student and aspiring backend developer. Structured Python, modular CLI applications, scalable backend foundations.">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════════
-       TOP NAV
-  ═══════════════════════════════════════════════════ -->
-  <header class="site-header" id="siteHeader">
-    <nav class="nav-inner" aria-label="Primary navigation">
-      <a href="#hero" class="nav-brand" aria-label="Srinath Yadav — home">
-        <span class="brand-prompt" aria-hidden="true">~/</span><span class="brand-name">srinath_yadav</span>
-      </a>
+<!-- ============================================================
+  SITE HEADER — sticky top nav
+  ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
 
-      <ul class="nav-links" id="navLinks" role="list">
-        <li><a class="nav-item" href="#about"      data-nav="about">About</a></li>
-        <li><a class="nav-item" href="#skills"     data-nav="skills">Skills</a></li>
-        <li><a class="nav-item" href="#projects"   data-nav="projects">Projects</a></li>
-        <li><a class="nav-item" href="#internship" data-nav="internship">Internship</a></li>
-        <li><a class="nav-item" href="#learning"   data-nav="learning">Learning</a></li>
-        <li><a class="nav-item" href="#education"  data-nav="education">Education</a></li>
-        <li><a class="nav-item" href="#goals"      data-nav="goals">Goals</a></li>
-        <li><a class="nav-item" href="#contact"    data-nav="contact">Contact</a></li>
+    <a class="nav-brand" href="#home" data-section="home" aria-label="Home">
+      <span class="brand-prompt">~/</span><span class="brand-name">srinath_yadav</span>
+    </a>
+
+    <!-- Desktop + mobile nav list (becomes slide-in drawer on mobile) -->
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a class="nav-item active" data-section="home"       href="#home">Home</a></li>
+      <li><a class="nav-item"       data-section="about"      href="#about">About</a></li>
+      <li><a class="nav-item"       data-section="skills"     href="#skills">Skills</a></li>
+      <li><a class="nav-item"       data-section="projects"   href="#projects">Projects</a></li>
+      <li><a class="nav-item"       data-section="internship" href="#internship">Internship</a></li>
+      <li><a class="nav-item"       data-section="learning"   href="#learning">Learning</a></li>
+      <li><a class="nav-item"       data-section="education"  href="#education">Education</a></li>
+      <li><a class="nav-item"       data-section="goals"      href="#goals">Goals</a></li>
+      <li><a class="nav-item"       data-section="contact"    href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Hamburger — mobile only (CSS hides on desktop) -->
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="navLinks"
+    >
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Overlay — dims background while mobile nav is open -->
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+<!-- ============================================================
+  MAIN CONTENT — natural vertical scroll
+  ============================================================ -->
+<main id="main">
+
+  <!-- ── 01 HOME / HERO ─────────────────────────────────────── -->
+  <section id="home" class="section hero-section" aria-label="Introduction">
+    <div class="hero-grid">
+
+      <!-- Left: Photo + geometric background -->
+      <div class="hero-photo-side">
+        <!-- Subtle dot-grid background (CSS-driven, no JS) -->
+        <div class="hero-geo-bg" aria-hidden="true">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <pattern id="dotGrid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="1.2" fill="#243050"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#dotGrid)"/>
+          </svg>
+        </div>
+
+        <!-- Photo with corner accent brackets -->
+        <div class="hero-photo-frame">
+          <img
+            src="1000045026 (1).jpg"
+            alt="Photo of Srinath Yadav"
+            class="hero-photo"
+            loading="eager"
+            width="280"
+            height="280"
+          >
+        </div>
+      </div>
+
+      <!-- Right: Text content -->
+      <div class="hero-text-side">
+        <p class="hero-eyebrow">
+          <span aria-hidden="true">// </span>Aspiring Backend Developer
+        </p>
+        <h1 class="hero-headline">
+          Building structured backend systems with Python.
+        </h1>
+        <p class="hero-sub">
+          I develop modular applications, intelligent tools, and scalable backend foundations designed for clarity, performance, and long-term growth.
+        </p>
+        <div class="hero-cta">
+          <button class="btn-primary" id="heroViewProjects">View Projects</button>
+          <button class="btn-ghost"   id="heroContact">Contact Me</button>
+        </div>
+        <div class="hero-tags" aria-label="Core technologies">
+          <span class="tag">Python</span>
+          <span class="tag">Groq API</span>
+          <span class="tag">Git</span>
+          <span class="tag">Linux</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 02 ABOUT ────────────────────────────────────────────── -->
+  <section id="about" class="section fade-in" aria-labelledby="about-title">
+    <div class="container">
+      <p class="section-label" aria-hidden="true">// 02</p>
+      <h2 class="section-title" id="about-title">About</h2>
+
+      <div class="about-grid">
+        <div class="about-text-block">
+          <p>
+            I am a BCA student with a deliberate focus on backend development and structured programming. My approach is to understand systems before building them — breaking problems into components, designing clean interfaces, and writing modular code.
+          </p>
+          <p>
+            I work primarily in Python, building CLI applications that practice real design principles: CRUD operations, JSON-based persistence, input validation, and function-level separation of concerns.
+          </p>
+          <p>
+            Currently strengthening core fundamentals before expanding into full backend frameworks. The goal is a solid base in data flow, system architecture, and database integration — built to last, not just to work.
+          </p>
+        </div>
+
+        <div class="about-principles" aria-label="Working principles">
+          <div class="principle">
+            <span class="principle-mark" aria-hidden="true">◈</span>
+            <div>
+              <p class="principle-title">Structured Thinking</p>
+              <p class="principle-desc">Design the solution before writing the first line</p>
+            </div>
+          </div>
+          <div class="principle">
+            <span class="principle-mark" aria-hidden="true">◈</span>
+            <div>
+              <p class="principle-title">Modular Design</p>
+              <p class="principle-desc">Each function owns one responsibility. Each module owns one domain.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <span class="principle-mark" aria-hidden="true">◈</span>
+            <div>
+              <p class="principle-title">Project-Based Learning</p>
+              <p class="principle-desc">Build, refactor, and improve — not just read and watch</p>
+            </div>
+          </div>
+          <div class="principle">
+            <span class="principle-mark" aria-hidden="true">◈</span>
+            <div>
+              <p class="principle-title">Scalability Mindset</p>
+              <p class="principle-desc">Write code that can grow — structured from day one</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 SKILLS ───────────────────────────────────────────── -->
+  <section id="skills" class="section fade-in" aria-labelledby="skills-title">
+    <div class="container">
+      <p class="section-label" aria-hidden="true">// 03</p>
+      <h2 class="section-title" id="skills-title">Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3 class="skill-card-title">// Programming</h3>
+          <ul class="skill-list">
+            <li>Python — Primary language</li>
+            <li>OOP — Classes, encapsulation, inheritance</li>
+            <li>File Handling — Read/write operations</li>
+            <li>JSON persistence</li>
+            <li>CLI Application Development</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-card-title">// APIs &amp; Integration</h3>
+          <ul class="skill-list">
+            <li>Groq API — LLM inference integration</li>
+            <li>REST API fundamentals</li>
+            <li>HTTP request/response lifecycle</li>
+            <li>Structured API response handling</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-card-title">// Web Development</h3>
+          <ul class="skill-list">
+            <li>HTML5 — Semantic markup</li>
+            <li>CSS3 — Responsive, mobile-first layouts</li>
+            <li>JavaScript — DOM manipulation, events</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-card-title">// Tools &amp; Platforms</h3>
+          <ul class="skill-list">
+            <li>Git — Version control, branching</li>
+            <li>GitHub — Repository management</li>
+            <li>VS Code — Primary editor</li>
+            <li>Linux — Terminal, filesystem, bash basics</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-card-title">// Core Concepts</h3>
+          <ul class="skill-list">
+            <li>CRUD operations</li>
+            <li>Input validation &amp; error handling</li>
+            <li>Modular program design</li>
+            <li>Data persistence patterns</li>
+            <li>Separation of concerns</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 PROJECTS ─────────────────────────────────────────── -->
+  <section id="projects" class="section fade-in" aria-labelledby="projects-title">
+    <div class="container">
+      <p class="section-label" aria-hidden="true">// 04</p>
+      <h2 class="section-title" id="projects-title">Projects</h2>
+
+      <div class="projects-stack">
+
+        <!-- Project 1: AI Chatbot -->
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-meta">
+              <span class="project-type">AI Application</span>
+              <h3 class="project-name">AI Chatbot</h3>
+            </div>
+            <div class="project-badges">
+              <span class="badge-status done">Completed</span>
+              <a
+                href="https://github.com/srinathyadav46/ai-chatbot"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="badge-gh"
+                aria-label="View AI Chatbot on GitHub"
+              >GH · View Repo</a>
+            </div>
+          </div>
+          <p class="project-desc">
+            AI-powered chatbot integrating the Groq API for real-time LLM inference, built with a clean modular backend and minimal interaction layer.
+          </p>
+          <ul class="project-features">
+            <li>Real-time AI response generation via Groq API</li>
+            <li>Structured backend logic for request handling and response parsing</li>
+            <li>Clean UI interaction layer decoupled from core logic</li>
+            <li>Modular code structure separating API, processing, and presentation</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Groq API</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">Modular Design</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-meta">
+              <span class="project-type">CLI Application</span>
+              <h3 class="project-name">Student Management System</h3>
+            </div>
+            <div class="project-badges">
+              <span class="badge-status done">Completed</span>
+              <a
+                href="https://github.com/srinathyadav46/student-management-system"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="badge-gh"
+                aria-label="View Student Management System on GitHub"
+              >GH · View Repo</a>
+            </div>
+          </div>
+          <p class="project-desc">
+            A Python CLI application for managing student records with full data persistence, analytics, and modular architecture.
+          </p>
+          <ul class="project-features">
+            <li>Full CRUD operations — create, read, update, delete student records</li>
+            <li>JSON-based persistent data storage across sessions</li>
+            <li>Input validation and structured error handling</li>
+            <li>Class average calculation and top-scorer identification</li>
+            <li>Refactored from monolithic script to modular function-based architecture</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">JSON</span>
+            <span class="tech-tag">File I/O</span>
+            <span class="tech-tag">Modular Design</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-meta">
+              <span class="project-type">CLI Application</span>
+              <h3 class="project-name">Smart Expense Tracker</h3>
+            </div>
+            <div class="project-badges">
+              <span class="badge-status wip">In Progress</span>
+              <a
+                href="https://github.com/srinathyadav46/smart-expense-tracker"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="badge-gh"
+                aria-label="View Smart Expense Tracker on GitHub"
+              >GH · View Repo</a>
+            </div>
+          </div>
+          <p class="project-desc">
+            A categorized expense tracking tool designed with scalability in mind — structured to support a database backend as the next iteration.
+          </p>
+          <ul class="project-features">
+            <li>Tracks daily expenses with date, category, and amount</li>
+            <li>Categorized spending summaries per time period</li>
+            <li>Modular structure — separate layers for input, logic, and storage</li>
+            <li>Planned migration from JSON to SQLite for relational persistence</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Modular Design</span>
+            <span class="tech-tag">SQLite (Planned)</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-meta">
+              <span class="project-type">Web Application</span>
+              <h3 class="project-name">Personal Resume Website</h3>
+            </div>
+            <div class="project-badges">
+              <span class="badge-status done">Completed</span>
+              <a
+                href="https://github.com/srinathyadav46/resume-website"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="badge-gh"
+                aria-label="View Resume Website on GitHub"
+              >GH · View Repo</a>
+            </div>
+          </div>
+          <p class="project-desc">
+            A responsive, mobile-first portfolio built without frameworks — pure HTML, CSS, and JavaScript.
+          </p>
+          <ul class="project-features">
+            <li>Mobile-first responsive layout with structured breakpoints</li>
+            <li>Sticky top navigation with IntersectionObserver-driven active state</li>
+            <li>Fade-in animations using only transform and opacity</li>
+            <li>Zero dependencies — no frameworks or build tools</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 INTERNSHIP ───────────────────────────────────────── -->
+  <section id="internship" class="section fade-in" aria-labelledby="internship-title">
+    <div class="container">
+      <p class="section-label" aria-hidden="true">// 05</p>
+      <h2 class="section-title" id="internship-title">Internship</h2>
+
+      <div class="exp-stack">
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <p class="exp-org">IMTDA Infotech Private Limited</p>
+              <p class="exp-role">Internship — AI &amp; Python</p>
+            </div>
+            <span class="exp-type">Internship</span>
+          </div>
+          <div class="exp-divider"></div>
+          <p class="exp-label">// Learning Outcomes</p>
+          <ul class="exp-list">
+            <li>Exposure to supervised and unsupervised machine learning concepts</li>
+            <li>Worked with real-world datasets — data cleaning and preprocessing pipelines</li>
+            <li>Applied Python to ML workflows: feature handling and model evaluation basics</li>
+            <li>Strengthened core Python skills in a structured, applied context</li>
+            <li>Understood the end-to-end flow of a basic ML pipeline</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">ML Fundamentals</span>
+            <span class="tech-tag">Data Preprocessing</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <p class="exp-org">NASSCOM</p>
+              <p class="exp-role">AI &amp; Data Science Training</p>
+            </div>
+            <span class="exp-type">Training</span>
+          </div>
+          <div class="exp-divider"></div>
+          <ul class="exp-list">
+            <li>Training in Artificial Intelligence and Data Science fundamentals</li>
+            <li>Exposure to machine learning concepts and data workflows</li>
+            <li>Practical understanding of Python for data handling and analysis</li>
+            <li>Introduction to industry-level AI development practices</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tech-tag">AI Fundamentals</span>
+            <span class="tech-tag">Data Science</span>
+            <span class="tech-tag">Python</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 06 CURRENTLY LEARNING ───────────────────────────────── -->
+  <section id="learning" class="section fade-in" aria-labelledby="learning-title">
+    <div class="container">
+      <p class="section-label" aria-hidden="true">// 06</p>
+      <h2 class="section-title" id="learning-title">Currently Learning</h2>
+
+      <div class="learning-grid">
+        <div class="learning-card">
+          <h3 class="learning-title">Modular Python Projects</h3>
+          <p class="learning-desc">Structuring multi-file Python projects with clear module boundaries, shared utilities, and defined interfaces between components.</p>
+        </div>
+        <div class="learning-card">
+          <h3 class="learning-title">SQLite Integration</h3>
+          <p class="learning-desc">Migrating from JSON storage to relational databases — schema design, queries, and Python DB-API via the <code>sqlite3</code> module.</p>
+        </div>
+        <div class="learning-card">
+          <h3 class="learning-title">Backend Fundamentals</h3>
+          <p class="learning-desc">REST principles, HTTP request/response lifecycle, routing logic, and the foundations of server-side application architecture.</p>
+        </div>
+        <div class="learning-card">
+          <h3 class="learning-title">System Design Basics</h3>
+          <p class="learning-desc">Scalability concepts, separation of concerns, designing for maintainability, and thinking about systems before writing code.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 07 EDUCATION ────────────────────────────────────────── -->
+  <section id="education" class="section fade-in" aria-labelledby="education-title">
+    <div class="container">
+      <p class="section-label" aria-hidden="true">// 07</p>
+      <h2 class="section-title" id="education-title">Education</h2>
+
+      <div class="edu-stack">
+
+        <div class="edu-row">
+          <div class="edu-dot-col" aria-hidden="true">
+            <div class="edu-dot active-dot"></div>
+            <div class="edu-line"></div>
+          </div>
+          <div class="edu-detail">
+            <span class="edu-badge current">Current</span>
+            <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+            <p class="edu-school">Indus Valley Degree College · Bengaluru North University</p>
+            <div class="edu-score">
+              <span class="score-label">CGPA</span>
+              <span class="score-val">7.5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-row">
+          <div class="edu-dot-col" aria-hidden="true">
+            <div class="edu-dot"></div>
+            <div class="edu-line"></div>
+          </div>
+          <div class="edu-detail">
+            <span class="edu-badge">PUC</span>
+            <h3 class="edu-degree">Pre-University Certificate (Science)</h3>
+            <p class="edu-school">Samruddi PU and Degree College</p>
+            <div class="edu-score">
+              <span class="score-label">Percentage</span>
+              <span class="score-val">69.5%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-row">
+          <div class="edu-dot-col" aria-hidden="true">
+            <div class="edu-dot"></div>
+          </div>
+          <div class="edu-detail">
+            <span class="edu-badge">SSLC</span>
+            <h3 class="edu-degree">Secondary School Leaving Certificate</h3>
+            <p class="edu-school">Smt Vasanthi Venugopal High School</p>
+            <div class="edu-score">
+              <span class="score-label">Percentage</span>
+              <span class="score-val">90.08%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 08 FUTURE GOALS ─────────────────────────────────────── -->
+  <section id="goals" class="section fade-in" aria-labelledby="goals-title">
+    <div class="container">
+      <p class="section-label" aria-hidden="true">// 08</p>
+      <h2 class="section-title" id="goals-title">Future Goals</h2>
+
+      <!-- Accessible list for screen readers -->
+      <ul class="sr-only">
+        <li>Strengthen backend development with Python web frameworks and REST APIs</li>
+        <li>Learn database design and query optimization — PostgreSQL, SQLite</li>
+        <li>Contribute to open-source or production-level software projects</li>
+        <li>Secure a junior backend or Python developer role post-graduation</li>
       </ul>
 
-      <button
-        class="hamburger"
-        id="hamburger"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="navLinks"
-      >
-        <span class="ham-bar"></span>
-        <span class="ham-bar"></span>
-        <span class="ham-bar"></span>
-      </button>
-    </nav>
-  </header>
-
-  <!-- Mobile nav overlay -->
-  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
-
-  <!-- ═══════════════════════════════════════════════════
-       MAIN
-  ═══════════════════════════════════════════════════ -->
-  <main>
-
-    <!-- ── HERO ──────────────────────────────────────── -->
-    <section id="hero" class="section hero-section" aria-label="Introduction">
-      <div class="hero-grid">
-
-        <!-- Left: photo + geometric bg -->
-        <div class="hero-photo-side" aria-hidden="true">
-          <div class="hero-geo-bg">
-            <svg class="geo-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="60"  y="60"  width="120" height="120" fill="none" stroke="var(--accent-bd)" stroke-width="1" transform="rotate(12,120,120)" />
-              <rect x="220" y="220" width="100" height="100" fill="none" stroke="var(--accent-bd)" stroke-width="1" transform="rotate(-8,270,270)" />
-              <circle cx="320" cy="80"  r="40" fill="none" stroke="var(--geo-muted)" stroke-width="1" />
-              <circle cx="80"  cy="320" r="25" fill="none" stroke="var(--geo-muted)" stroke-width="1" />
-              <line x1="180" y1="0"   x2="180" y2="400" stroke="var(--geo-line)" stroke-width="1" stroke-dasharray="4 8" />
-              <line x1="0"   y1="220" x2="400" y2="220" stroke="var(--geo-line)" stroke-width="1" stroke-dasharray="4 8" />
-              <polygon points="340,160 370,210 310,210" fill="none" stroke="var(--accent-bd)" stroke-width="1" />
-              <rect x="20" y="160" width="50" height="50" fill="var(--geo-fill)" />
-            </svg>
-          </div>
-          <div class="hero-photo-frame">
-            <img
-              src="1000045026 (1).jpg"
-              alt="Srinath Yadav"
-              class="hero-photo"
-              width="320"
-              height="320"
-            />
-          </div>
+      <!-- Visual terminal block -->
+      <div class="goals-terminal" aria-hidden="true">
+        <div class="term-bar">
+          <span class="term-dot dot-red"></span>
+          <span class="term-dot dot-yellow"></span>
+          <span class="term-dot dot-green"></span>
+          <span class="term-title">goals.py</span>
         </div>
-
-        <!-- Right: text content -->
-        <div class="hero-text-side">
-          <p class="hero-eyebrow">
-            <span class="mono" aria-hidden="true">&gt;_</span> Aspiring Backend Developer
-          </p>
-          <h1 class="hero-headline">
-            Engineering reliable backend systems for modern applications.
-          </h1>
-          <p class="hero-sub">
-            I design structured Python applications, modular CLI tools, and scalable backend foundations built for long-term growth.
-          </p>
-          <div class="hero-cta">
-            <a href="#projects" class="btn-primary">View Projects</a>
-            <a href="#contact"  class="btn-ghost">Contact Me</a>
-          </div>
-          <div class="hero-tags" aria-label="Core technologies">
-            <span class="tag">Python</span>
-            <span class="tag">Git</span>
-            <span class="tag">Linux</span>
-            <span class="tag">SQL</span>
-            <span class="tag">CLI Tools</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── ABOUT ──────────────────────────────────────── -->
-    <section id="about" class="section fade-in" aria-label="About">
-      <div class="container">
-        <div class="section-label" aria-hidden="true"><span class="mono">02 /</span> About</div>
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-          <div class="about-text-block">
-            <p>
-              I am a BCA student with a deliberate focus on backend development and structured programming. My approach is to understand systems before building them — breaking problems into components, designing clean interfaces, and writing modular code.
-            </p>
-            <p>
-              I work primarily in Python, building CLI applications that practice real design principles: CRUD operations, JSON-based persistence, input validation, and function-level separation of concerns.
-            </p>
-            <p>
-              Currently strengthening core fundamentals before expanding into full backend frameworks. The goal is a solid base in data flow, system architecture, and database integration — built to last, not just to work.
-            </p>
-          </div>
-          <div class="about-principles">
-            <div class="principle">
-              <span class="principle-mark" aria-hidden="true">◈</span>
-              <div>
-                <p class="principle-title">Structured Thinking</p>
-                <p class="principle-desc">Design the solution before writing the first line</p>
-              </div>
-            </div>
-            <div class="principle">
-              <span class="principle-mark" aria-hidden="true">◈</span>
-              <div>
-                <p class="principle-title">Modular Design</p>
-                <p class="principle-desc">Each function owns one responsibility. Each module owns one domain.</p>
-              </div>
-            </div>
-            <div class="principle">
-              <span class="principle-mark" aria-hidden="true">◈</span>
-              <div>
-                <p class="principle-title">Project-Based Learning</p>
-                <p class="principle-desc">Build, refactor, and improve — not just read and watch</p>
-              </div>
-            </div>
-            <div class="principle">
-              <span class="principle-mark" aria-hidden="true">◈</span>
-              <div>
-                <p class="principle-title">Scalability Mindset</p>
-                <p class="principle-desc">Write code that can grow — structured from day one</p>
-              </div>
-            </div>
-          </div>
+        <div class="term-body">
+          <p class="t-line"><span class="t-var">goals</span><span class="t-op"> = </span><span class="t-bracket">[</span></p>
+          <p class="t-line t-in"><span class="t-str">"Strengthen backend development with Python web frameworks and REST APIs"</span><span class="t-op">,</span></p>
+          <p class="t-line t-in"><span class="t-str">"Learn database design and query optimization — PostgreSQL, SQLite"</span><span class="t-op">,</span></p>
+          <p class="t-line t-in"><span class="t-str">"Contribute to open-source or production-level software projects"</span><span class="t-op">,</span></p>
+          <p class="t-line t-in"><span class="t-str">"Secure a junior backend or Python developer role post-graduation"</span></p>
+          <p class="t-line"><span class="t-bracket">]</span></p>
+          <p class="t-line">&nbsp;</p>
+          <p class="t-line"><span class="t-kw">for</span><span class="t-op"> goal </span><span class="t-kw">in</span><span class="t-op"> goals:</span></p>
+          <p class="t-line t-in"><span class="t-fn">execute</span><span class="t-op">(goal)  </span><span class="t-comment"># one step at a time</span></p>
         </div>
       </div>
-    </section>
 
-    <!-- ── SKILLS ─────────────────────────────────────── -->
-    <section id="skills" class="section fade-in" aria-label="Skills">
-      <div class="container">
-        <div class="section-label" aria-hidden="true"><span class="mono">03 /</span> Skills</div>
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-
-          <div class="skill-card">
-            <h3 class="skill-card-title"><span class="mono" aria-hidden="true">// </span>Programming</h3>
-            <ul class="skill-list">
-              <li>Python — Primary language</li>
-              <li>OOP — Classes, encapsulation, inheritance</li>
-              <li>File Handling — Read/write operations</li>
-              <li>JSON persistence</li>
-              <li>CLI Application Development</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3 class="skill-card-title"><span class="mono" aria-hidden="true">// </span>Web Development</h3>
-            <ul class="skill-list">
-              <li>HTML5 — Semantic markup</li>
-              <li>CSS3 — Responsive, mobile-first</li>
-              <li>JavaScript — DOM, events</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3 class="skill-card-title"><span class="mono" aria-hidden="true">// </span>Tools &amp; Platforms</h3>
-            <ul class="skill-list">
-              <li>Git — Version control, branching</li>
-              <li>GitHub — Repository management</li>
-              <li>VS Code — Primary editor</li>
-              <li>Linux — Terminal, filesystem, bash</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3 class="skill-card-title"><span class="mono" aria-hidden="true">// </span>Core Concepts</h3>
-            <ul class="skill-list">
-              <li>CRUD operations</li>
-              <li>Input validation &amp; error handling</li>
-              <li>Modular program design</li>
-              <li>Data persistence patterns</li>
-              <li>Separation of concerns</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── PROJECTS ───────────────────────────────────── -->
-    <section id="projects" class="section fade-in" aria-label="Projects">
-      <div class="container">
-        <div class="section-label" aria-hidden="true"><span class="mono">04 /</span> Projects</div>
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-stack">
-
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-meta">
-                <span class="project-type">CLI Application</span>
-                <h3 class="project-name">Student Management System</h3>
-              </div>
-              <div class="project-badges">
-                <span class="badge-status done">Completed</span>
-                <a
-                  href="https://github.com/srinathyadav46/student-management-system"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="badge-gh"
-                  aria-label="View Student Management System on GitHub"
-                >GH ↗</a>
-              </div>
-            </div>
-            <p class="project-desc">
-              Python CLI application for managing student records with full data persistence, analytics, and modular architecture.
-            </p>
-            <ul class="project-features">
-              <li>Full CRUD — create, read, update, delete student records</li>
-              <li>JSON-based persistent storage across sessions</li>
-              <li>Input validation and structured error handling</li>
-              <li>Calculates class average and identifies top scorer</li>
-              <li>Refactored from monolithic script to modular function-based architecture</li>
-            </ul>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">JSON</span>
-              <span class="tech-tag">File I/O</span>
-              <span class="tech-tag">Modular Design</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-meta">
-                <span class="project-type">CLI Application</span>
-                <h3 class="project-name">Smart Expense Tracker</h3>
-              </div>
-              <div class="project-badges">
-                <span class="badge-status wip">In Progress</span>
-                <a
-                  href="https://github.com/srinathyadav46/smart-expense-tracker"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="badge-gh"
-                  aria-label="View Smart Expense Tracker on GitHub"
-                >GH ↗</a>
-              </div>
-            </div>
-            <p class="project-desc">
-              Categorized expense tracking tool designed with scalability in mind — structured to support a database backend as the next iteration.
-            </p>
-            <ul class="project-features">
-              <li>Tracks daily expenses with date, category, and amount</li>
-              <li>Categorized spending summaries per time period</li>
-              <li>Modular structure — separate layers for input, logic, storage</li>
-              <li>Planned migration from JSON to SQLite for relational persistence</li>
-            </ul>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Modular Design</span>
-              <span class="tech-tag">SQLite (Planned)</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <div class="project-meta">
-                <span class="project-type">Web Application</span>
-                <h3 class="project-name">Personal Resume Website</h3>
-              </div>
-              <div class="project-badges">
-                <span class="badge-status done">Completed</span>
-                <a
-                  href="https://github.com/srinathyadav46/resume-website"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="badge-gh"
-                  aria-label="View Resume Website on GitHub"
-                >GH ↗</a>
-              </div>
-            </div>
-            <p class="project-desc">
-              Responsive, mobile-first resume website built without frameworks — pure HTML, CSS, and JavaScript.
-            </p>
-            <ul class="project-features">
-              <li>Mobile-first responsive design with structured breakpoints</li>
-              <li>Interactive navigation with smooth scroll</li>
-              <li>Semantically structured content sections</li>
-              <li>Zero dependencies — no frameworks or build tools</li>
-            </ul>
-            <div class="project-tech">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── INTERNSHIP ─────────────────────────────────── -->
-    <section id="internship" class="section fade-in" aria-label="Internship experience">
-      <div class="container">
-        <div class="section-label" aria-hidden="true"><span class="mono">05 /</span> Internship</div>
-        <h2 class="section-title">Internship</h2>
-        <div class="exp-stack">
-
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-org">IMTDA Infotech Private Limited</h3>
-                <p class="exp-role">Internship — AI &amp; Python</p>
-              </div>
-              <span class="exp-type">Internship</span>
-            </div>
-            <div class="exp-divider"></div>
-            <p class="exp-label"><span class="mono" aria-hidden="true">// </span>Learning Outcomes</p>
-            <ul class="exp-list">
-              <li>Exposure to supervised and unsupervised machine learning concepts</li>
-              <li>Worked with real-world datasets — data cleaning and preprocessing pipelines</li>
-              <li>Applied Python to ML workflows: feature handling and model evaluation basics</li>
-              <li>Strengthened core Python skills in a structured, applied context</li>
-              <li>Understood the end-to-end flow of a basic ML pipeline</li>
-            </ul>
-            <div class="exp-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">ML Fundamentals</span>
-              <span class="tech-tag">Data Preprocessing</span>
-            </div>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-org">Infosys</h3>
-                <p class="exp-role">Training Program</p>
-              </div>
-              <span class="exp-type">Training</span>
-            </div>
-            <div class="exp-divider"></div>
-            <ul class="exp-list">
-              <li>Exposure to enterprise software development practices and workflows</li>
-              <li>Understanding of structured programming in a professional environment</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CURRENTLY LEARNING ─────────────────────────── -->
-    <section id="learning" class="section fade-in" aria-label="Currently learning">
-      <div class="container">
-        <div class="section-label" aria-hidden="true"><span class="mono">06 /</span> Learning</div>
-        <h2 class="section-title">Currently Learning</h2>
-        <div class="learning-grid">
-
-          <div class="learning-card">
-            <p class="learning-title">Modular Python Projects</p>
-            <p class="learning-desc">Structuring multi-file Python projects with clear module boundaries, shared utilities, and defined interfaces between components.</p>
-          </div>
-
-          <div class="learning-card">
-            <p class="learning-title">SQLite Integration</p>
-            <p class="learning-desc">Migrating from JSON storage to relational databases — schema design, queries, and Python DB-API via the <code>sqlite3</code> module.</p>
-          </div>
-
-          <div class="learning-card">
-            <p class="learning-title">Backend Fundamentals</p>
-            <p class="learning-desc">REST principles, HTTP request/response lifecycle, routing logic, and the foundations of server-side application architecture.</p>
-          </div>
-
-          <div class="learning-card">
-            <p class="learning-title">System Design Basics</p>
-            <p class="learning-desc">Scalability concepts, separation of concerns, designing for maintainability, and thinking about systems before writing code.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── EDUCATION ──────────────────────────────────── -->
-    <section id="education" class="section fade-in" aria-label="Education">
-      <div class="container">
-        <div class="section-label" aria-hidden="true"><span class="mono">07 /</span> Education</div>
-        <h2 class="section-title">Education</h2>
-        <div class="edu-stack">
-
-          <div class="edu-row">
-            <div class="edu-dot-col" aria-hidden="true">
-              <div class="edu-dot active-dot"></div>
-              <div class="edu-line"></div>
-            </div>
-            <div class="edu-detail">
-              <span class="edu-badge current">Current</span>
-              <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
-              <p class="edu-school">Indus Valley Degree College · Bengaluru North University</p>
-              <div class="edu-score">
-                <span class="score-label">CGPA</span>
-                <span class="score-val">7.5</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="edu-row">
-            <div class="edu-dot-col" aria-hidden="true">
-              <div class="edu-dot"></div>
-              <div class="edu-line"></div>
-            </div>
-            <div class="edu-detail">
-              <span class="edu-badge">PUC</span>
-              <h3 class="edu-degree">Pre-University Certificate (Science)</h3>
-              <p class="edu-school">Samruddi PU and Degree College</p>
-              <div class="edu-score">
-                <span class="score-label">Percentage</span>
-                <span class="score-val">69.5%</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="edu-row">
-            <div class="edu-dot-col" aria-hidden="true">
-              <div class="edu-dot"></div>
-            </div>
-            <div class="edu-detail">
-              <span class="edu-badge">SSLC</span>
-              <h3 class="edu-degree">Secondary School Leaving Certificate</h3>
-              <p class="edu-school">Smt Vasanthi Venugopal High School</p>
-              <div class="edu-score">
-                <span class="score-label">Percentage</span>
-                <span class="score-val">90.08%</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── GOALS ──────────────────────────────────────── -->
-    <section id="goals" class="section fade-in" aria-label="Future goals">
-      <div class="container">
-        <div class="section-label" aria-hidden="true"><span class="mono">08 /</span> Goals</div>
-        <h2 class="section-title">Future Goals</h2>
-        <div class="goals-terminal">
-          <div class="term-bar" aria-hidden="true">
-            <span class="term-dot" style="background:#ff5f57"></span>
-            <span class="term-dot" style="background:#ffbd2e"></span>
-            <span class="term-dot" style="background:#28c840"></span>
-            <span class="term-title">goals.py</span>
-          </div>
-          <!-- Screen reader version -->
-          <ul class="sr-only">
-            <li>Strengthen backend development with Python web frameworks and REST APIs</li>
-            <li>Learn database design and query optimization — PostgreSQL, SQLite</li>
-            <li>Contribute to open-source or production-level software projects</li>
-            <li>Secure a junior backend or Python developer role post-graduation</li>
-          </ul>
-          <!-- Visual terminal -->
-          <div class="term-body" aria-hidden="true">
-            <p class="t-line"><span class="t-var">goals</span><span class="t-op"> = </span><span class="t-bracket">[</span></p>
-            <p class="t-line t-in"><span class="t-str">"Strengthen backend development with Python web frameworks and REST APIs"</span><span class="t-op">,</span></p>
-            <p class="t-line t-in"><span class="t-str">"Learn database design and query optimization — PostgreSQL, SQLite"</span><span class="t-op">,</span></p>
-            <p class="t-line t-in"><span class="t-str">"Contribute to open-source or production-level software projects"</span><span class="t-op">,</span></p>
-            <p class="t-line t-in"><span class="t-str">"Secure a junior backend or Python developer role post-graduation"</span></p>
-            <p class="t-line"><span class="t-bracket">]</span></p>
-            <p class="t-line">&nbsp;</p>
-            <p class="t-line"><span class="t-kw">for</span><span class="t-op"> goal </span><span class="t-kw">in</span><span class="t-op"> goals:</span></p>
-            <p class="t-line t-in"><span class="t-fn">execute</span><span class="t-op">(goal)  </span><span class="t-comment"># one step at a time</span></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── CONTACT ────────────────────────────────────── -->
-    <section id="contact" class="section fade-in" aria-label="Contact">
-      <div class="container">
-        <div class="section-label" aria-hidden="true"><span class="mono">09 /</span> Contact</div>
-        <h2 class="section-title">Contact</h2>
-        <p class="contact-intro">Open to internship opportunities, collaborative projects, and professional conversations.</p>
-        <div class="contact-grid">
-
-          <a href="mailto:srinathsrinsth195@gmail.com" class="contact-card">
-            <span class="contact-icon" aria-hidden="true">@</span>
-            <div>
-              <p class="contact-label">Email</p>
-              <p class="contact-value">srinathsrinsth195@gmail.com</p>
-            </div>
-          </a>
-
-          <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <span class="contact-icon" aria-hidden="true">GH</span>
-            <div>
-              <p class="contact-label">GitHub</p>
-              <p class="contact-value">srinathyadav46</p>
-            </div>
-          </a>
-
-          <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <span class="contact-icon" aria-hidden="true">LI</span>
-            <div>
-              <p class="contact-label">LinkedIn</p>
-              <p class="contact-value">Srinath (Yadav) C</p>
-            </div>
-          </a>
-
-          <a href="https://www.hackerrank.com/srinathsrinsth11" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <span class="contact-icon" aria-hidden="true">HR</span>
-            <div>
-              <p class="contact-label">HackerRank</p>
-              <p class="contact-value">@srinathsrinsth11</p>
-            </div>
-          </a>
-
-          <a href="https://leetcode.com/SRINATHYADAV46" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <span class="contact-icon" aria-hidden="true">LC</span>
-            <div>
-              <p class="contact-label">LeetCode</p>
-              <p class="contact-value">SRINATHYADAV46</p>
-            </div>
-          </a>
-
-          <a href="https://www.kaggle.com/srinathyadav46" target="_blank" rel="noopener noreferrer" class="contact-card">
-            <span class="contact-icon" aria-hidden="true">KG</span>
-            <div>
-              <p class="contact-label">Kaggle</p>
-              <p class="contact-value">srinathyadav46</p>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ═══════════════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════════════ -->
-  <footer class="site-footer">
-    <div class="container">
-      <p class="footer-text">
-        <span class="mono" aria-hidden="true">~/</span> Srinath Yadav &nbsp;·&nbsp; Built with HTML, CSS &amp; JavaScript &nbsp;·&nbsp; &copy; 2026
-      </p>
     </div>
-  </footer>
+  </section>
 
-  <script src="app.js"></script>
+  <!-- ── 09 CONTACT ──────────────────────────────────────────── -->
+  <section id="contact" class="section fade-in" aria-labelledby="contact-title">
+    <div class="container">
+      <p class="section-label" aria-hidden="true">// 09</p>
+      <h2 class="section-title" id="contact-title">Contact</h2>
+      <p class="contact-intro">Open to internship opportunities, collaborative projects, and professional conversations.</p>
+
+      <div class="contact-grid">
+
+        <a href="mailto:srinathsrinsth195@gmail.com" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">@</span>
+          <div>
+            <p class="contact-label">Email</p>
+            <p class="contact-value">srinathsrinsth195@gmail.com</p>
+          </div>
+        </a>
+
+        <a href="https://github.com/srinathyadav46" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">GH</span>
+          <div>
+            <p class="contact-label">GitHub</p>
+            <p class="contact-value">srinathyadav46</p>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/srinath-c-0ba207376" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">LI</span>
+          <div>
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-value">Srinath (Yadav) C</p>
+          </div>
+        </a>
+
+        <a href="https://www.hackerrank.com/srinathsrinsth11" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">HR</span>
+          <div>
+            <p class="contact-label">HackerRank</p>
+            <p class="contact-value">@srinathsrinsth11</p>
+          </div>
+        </a>
+
+        <a href="https://leetcode.com/SRINATHYADAV46" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">LC</span>
+          <div>
+            <p class="contact-label">LeetCode</p>
+            <p class="contact-value">SRINATHYADAV46</p>
+          </div>
+        </a>
+
+        <a href="https://www.kaggle.com/srinathyadav46" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <span class="contact-icon" aria-hidden="true">KG</span>
+          <div>
+            <p class="contact-label">Kaggle</p>
+            <p class="contact-value">srinathyadav46</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+  SITE FOOTER
+  ============================================================ -->
+<footer class="site-footer">
+  <p class="footer-text">&copy; 2026 Srinath Yadav · Aspiring Backend Developer</p>
+</footer>
+
+<!-- ============================================================
+  JAVASCRIPT — IIFE, no global pollution, no inline onclick
+  ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  var header    = document.getElementById('siteHeader');
+  var hamburger = document.getElementById('hamburger');
+  var navLinks  = document.getElementById('navLinks');
+  var overlay   = document.getElementById('navOverlay');
+  var navItems  = document.querySelectorAll('.nav-item');
+  var sections  = document.querySelectorAll('section[id]');
+  var fadeEls   = document.querySelectorAll('.fade-in');
+
+  // Mobile menu
+  function openMenu() {
+    navLinks.classList.add('open');
+    overlay.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close navigation menu');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    overlay.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open navigation menu');
+    document.body.style.overflow = '';
+  }
+
+  function toggleMenu() {
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Nav link clicks — smooth scroll + close drawer
+  navItems.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var id = item.dataset.section;
+      if (!id) return;
+      e.preventDefault();
+      closeMenu();
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  var brand = document.querySelector('.nav-brand');
+  if (brand) {
+    brand.addEventListener('click', function (e) {
+      e.preventDefault();
+      closeMenu();
+      var home = document.getElementById('home');
+      if (home) home.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  // Hero CTA buttons
+  var btnProjects = document.getElementById('heroViewProjects');
+  var btnContact  = document.getElementById('heroContact');
+  if (btnProjects) btnProjects.addEventListener('click', function () {
+    var el = document.getElementById('projects');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  if (btnContact) btnContact.addEventListener('click', function () {
+    var el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // Header border on scroll — rAF-batched, passive listener
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // IntersectionObserver — active nav + fade-in
+  if ('IntersectionObserver' in window) {
+
+    var navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          navItems.forEach(function (item) {
+            item.classList.toggle('active', item.dataset.section === id);
+          });
+        }
+      });
+    }, { rootMargin: '0px 0px -58% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { navObserver.observe(s); });
+
+    var fadeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06 });
+
+    fadeEls.forEach(function (el) { fadeObserver.observe(el); });
+
+  } else {
+    fadeEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  // Respect prefers-reduced-motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    fadeEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+})();
+</script>
+
 </body>
 </html>
