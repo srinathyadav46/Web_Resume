@@ -340,7 +340,58 @@ section {
   border: 1px solid var(--border-hi);
   border-radius: 3px;
   overflow: hidden;
+  will-change: transform;
+  transition: transform 200ms ease;
 }
+
+@media (hover: hover) {
+  .hero-photo-frame:hover {
+    transform: scale(1.02);
+  }
+}
+
+.hero-photo-frame::before {
+  content: '';
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px solid rgba(34, 211, 238, 0.08);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: orbit-rotate 20s linear infinite;
+}
+
+.hero-photo-frame::after {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: orbit-rotate 16s linear infinite reverse;
+}
+
+@keyframes orbit-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo-frame::before,
+  .hero-photo-frame::after {
+    animation: none;
+  }
+}
+
 
 .hero-photo {
   width: min(268px, 100%);
