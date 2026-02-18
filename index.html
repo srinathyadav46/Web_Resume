@@ -229,7 +229,7 @@
             <div class="project-badges">
               <span class="badge-status done">Completed</span>
               <a
-                href="https://github.com/srinathyadav46/ai-chat-bot"
+                href="https://github.com/srinathyadav46/ai-chatbot"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="badge-gh"
@@ -334,7 +334,7 @@
             <div class="project-badges">
               <span class="badge-status done">Completed</span>
               <a
-                href="https://github.com/srinathyadav46/Web_Resume"
+                href="https://github.com/srinathyadav46/resume-website"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="badge-gh"
@@ -629,6 +629,7 @@
   var navItems  = document.querySelectorAll('.nav-item');
   var sections  = document.querySelectorAll('section[id]');
   var fadeEls   = document.querySelectorAll('.fade-in');
+  var heroPhotoFrame = document.querySelector('.hero-photo-frame');
 
   // Mobile menu
   function openMenu() {
@@ -693,10 +694,19 @@
 
   // Header border on scroll — rAF-batched, passive listener
   var ticking = false;
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
   window.addEventListener('scroll', function () {
     if (!ticking) {
       window.requestAnimationFrame(function () {
-        header.classList.toggle('scrolled', window.scrollY > 40);
+        var scrollY = window.scrollY;
+        header.classList.toggle('scrolled', scrollY > 40);
+        
+        if (heroPhotoFrame && !prefersReducedMotion) {
+          var parallaxOffset = Math.min(scrollY * 0.08, 12);
+          heroPhotoFrame.style.transform = 'translateY(' + parallaxOffset + 'px)';
+        }
+        
         ticking = false;
       });
       ticking = true;
